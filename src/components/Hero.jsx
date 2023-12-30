@@ -20,7 +20,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="px-[1rem] xl:px-0 flex justify-between mt-[2rem] mb-[8rem]  lg:h-[620px] overflow-hidden relative">
+    <section className="px-[1rem] xl:px-0 flex justify-between mt-[2rem] mb-[6rem]  lg:h-[620px] overflow-hidden relative">
       {/* left side */}
       <div className="hidden xl:block h-full w-[40px] bg-[#E7F9FD] rounded-se-3xl rounded-ee-3xl"></div>
 
@@ -32,9 +32,9 @@ const Hero = () => {
             <p>Hot Recipes</p>
           </div>
           <div className="mt-[2.5rem] mb-[7.5rem]">
-            <h1 className="text-5xl max-w-[520px] font-semibold leading-[1.3em]">
+            <h2 className="text-5xl max-w-[520px] font-semibold leading-[1.3em]">
               Spicy delicious chicken wings
-            </h1>
+            </h2>
             <p className="text-[#00000099] my-7">
               Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad

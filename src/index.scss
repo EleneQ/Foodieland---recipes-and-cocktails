@@ -32,6 +32,17 @@ body {
   }
 }
 
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 1.5rem;
+  row-gap: 2.5rem;
+}
+
+//text??
 .rotating-text {
   position: absolute;
   text-transform: uppercase;

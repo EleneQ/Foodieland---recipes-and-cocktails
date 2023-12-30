@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+
+import { fetchDataFromApi } from "../utils/fetchDataFromApi";
 
 const gradientsArray = [
   "linear-gradient(180deg, rgba(112, 130, 70, 0.00) 0%, rgba(112, 130, 70, 0.1) 100%)",
@@ -9,94 +12,98 @@ const gradientsArray = [
   "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.05) 100%)",
 ];
 
-const AllCategories = () => {
-  const slider = useRef();
+const AllCategories = ({
+  selectedCategory,
+  setSelectedCategory,
+  setRecipes,
+}) => {
   const [categories, setCategories] = useState([]);
-  //slider states
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(false);
-  const [startScrollLeft, setStartScrollLeft] = useState(false);
+  const [width, setWidth] = useState(0);
+  const carousel = useRef();
 
-  //api call
+  //fetch all categories
   useEffect(() => {
     const fetchCategories = async () => {
-      const url = "https://www.themealdb.com/api/json/v1/1/categories.php";
+      const { categories } = await fetchDataFromApi(
+        "https://www.themealdb.com/api/json/v1/1/categories.php"
+      );
 
-      try {
-        const res = await fetch(url);
-
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        const data = await res.json();
-        setCategories(data.categories);
-      } catch (error) {
-        console.error("Error fetching categories:", error.message);
-      }
+      setCategories(categories);
+      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
     };
     fetchCategories();
   }, []);
 
-  const dragStartHandler = (e) => {
-    setIsDragging(true);
-
-    setStartX(e.pageX);
-    setStartScrollLeft(slider.current.scrollLeft);
-  };
-
-  const draggingHandler = (e) => {
-    if (!isDragging) return;
-    slider.current.scrollLeft = startScrollLeft - (e.pageX - startX);
-  };
-
-  const dragStopHandler = () => {
-    setIsDragging(false);
-  };
-
-  //slider
+  //fetch recipes based on category
   useEffect(() => {
-    document.addEventListener("mouseup", dragStopHandler);
-    return () => {
-      document.removeEventListener("mouseup", dragStopHandler);
+    const fetchRecipes = async () => {
+      let url = "";
+      if (!selectedCategory || selectedCategory === "all") {
+        url = "https://www.themealdb.com/api/json/v1/1/search.php?f=b";
+      } else {
+        url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`;
+      }
+
+      const data = await fetchDataFromApi(url);
+      setRecipes(data.meals || []);
     };
-  }, []);
+    fetchRecipes();
+  }, [selectedCategory]);
 
   if (!categories.length) return "Loading...";
+
+  const categorySelectionHandler = (categoryName) => {
+    setSelectedCategory(categoryName);
+
+    window.scrollTo({
+      top: 1100,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section className="mb-[3rem] px-[5rem] max-w-[100rem] mx-auto">
       <h2 className="font-bold text-4xl mb-[4rem]">Categories</h2>
-      <ul
-        ref={slider}
-        className={`flex gap-10 rounded-2xl select-none ${
-          isDragging ? "cursor-grabbing" : "cursor-pointer"
-        }`}
-        onMouseDown={dragStartHandler}
-        onMouseMove={draggingHandler}
+      <motion.div
+        ref={carousel}
+        className="carousel | cursor-pointer overflow-hidden"
       >
-        {categories.map((category, i) => {
-          const gradientIndex = i % gradientsArray.length;
+        <motion.ul
+          className="inner-carousel | inline-flex items-center gap-10 rounded-2xl select-none"
+          drag="x"
+          dragConstraints={{ right: 0, left: -width }}
+        >
+          {categories.map((category, i) => {
+            const gradientIndex = i % gradientsArray.length;
 
-          return (
-            <li
-              key={category.idCategory}
-              className="cursor-pointer flex flex-col items-center justify-center gap-[1.5rem] text-[17px] font-bold px-5 pb-3"
-              style={{
-                borderRadius: "inherit",
-                backgroundImage: gradientsArray[gradientIndex] || "",
-              }}
-              onClick={() => {}}
-            >
-              <img
-                className="rounded-full w-[70px] h-[70px]"
-                src={category.strCategoryThumb}
-                alt={category.strCategory}
-              />
-              {category.strCategory}
-            </li>
-          );
-        })}
-      </ul>
+            const {
+              idCategory,
+              strCategoryThumb: img,
+              strCategory: categoryName,
+            } = category;
+
+            return (
+              <motion.li
+                key={idCategory}
+                className="flex flex-col items-center justify-center gap-[1.5rem] text-[17px] font-bold px-5 pb-3 w-[9rem]"
+                style={{
+                  borderRadius: "inherit",
+                  backgroundImage: gradientsArray[gradientIndex] || "",
+                }}
+                //TODO: not be able to click when dragging
+                onClick={() => categorySelectionHandler(categoryName)}
+              >
+                <img
+                  className="rounded-full w-[70px] h-[60px]"
+                  src={img}
+                  alt={categoryName}
+                />
+                {categoryName}
+              </motion.li>
+            );
+          })}
+        </motion.ul>
+      </motion.div>
     </section>
   );
 };
