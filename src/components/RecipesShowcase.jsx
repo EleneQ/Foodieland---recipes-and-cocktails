@@ -2,6 +2,7 @@ import { useState } from "react";
 import { PiForkKnifeFill } from "react-icons/pi";
 import { FaClock } from "react-icons/fa";
 import { MdAreaChart } from "react-icons/md";
+import { PropTypes } from "prop-types";
 
 import { Pagination, SearchBar } from "./";
 
@@ -136,4 +137,11 @@ const RecipesShowcase = ({ selectedCategory, recipes, setRecipes }) => {
     </section>
   );
 };
+
+RecipesShowcase.propTypes = {
+  selectedCategory: PropTypes.string.isRequired,
+  recipes: PropTypes.array.isRequired,
+  setRecipes: PropTypes.func.isRequired,
+};
+
 export default RecipesShowcase;

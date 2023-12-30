@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { PropTypes } from "prop-types";
 
 import { fetchDataFromApi } from "../utils/fetchDataFromApi";
 
@@ -106,6 +107,12 @@ const AllCategories = ({
       </motion.div>
     </section>
   );
+};
+
+AllCategories.propTypes = {
+  selectedCategory: PropTypes.string.isRequired,
+  setSelectedCategory: PropTypes.func.isRequired,
+  setRecipes: PropTypes.func.isRequired,
 };
 
 export default AllCategories;

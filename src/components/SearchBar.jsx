@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { fetchDataFromApi } from "../utils/fetchDataFromApi";
+import { PropTypes } from "prop-types";
 
 const SearchBar = ({ selectedCategory, setRecipes }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -49,4 +50,10 @@ const SearchBar = ({ selectedCategory, setRecipes }) => {
     </form>
   );
 };
+
+SearchBar.propTypes = {
+  selectedCategory: PropTypes.string.isRequired,
+  setRecipes: PropTypes.func.isRequired,
+};
+
 export default SearchBar;
