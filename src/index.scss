@@ -9,8 +9,18 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+//utils
 .overflow-x-hidden {
   overflow-x: hidden;
+}
+
+.padding-x {
+  padding-inline: 5rem;
+}
+
+.max-width {
+  max-width: 100rem;
+  margin-inline: auto;
 }
 
 .hero__container {
@@ -35,10 +45,10 @@ body {
 .recipe-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fill, minmax(20rem, 24rem));
   justify-content: space-between;
   align-items: center;
-  column-gap: 1.5rem;
+  column-gap: 6rem;
   row-gap: 2.5rem;
 }
 
@@ -67,4 +77,46 @@ body {
   right: 50%;
   font-size: 12px;
   transform-origin: 0 100px;
+}
+
+/* CHEF CTA */
+.chef-cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.chef-cta-img-container {
+  background-image: linear-gradient(
+    180deg,
+    rgba(231, 249, 253, 0) 0%,
+    #e7f9fd 100%
+  );
+  border-radius: 2rem;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  div {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-65%);
+    height: 167%;
+    aspect-ratio: 1;
+    z-index: 2;
+
+    background-image: url("./images/ChefCTA/tomato.png"),
+      url("./images/ChefCTA/steak.png"), url("./images/ChefCTA/onion.png"),
+      url("./images/ChefCTA/cabbage.png");
+    background-repeat: no-repeat;
+    background-position: left 10px bottom 120px, left 60px top 85px,
+      right 100px top 120px, right top 200px;
+  }
+
+  img {
+    height: 100%;
+  }
 }

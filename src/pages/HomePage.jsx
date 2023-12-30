@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-import { Hero, AllCategories, RecipesShowcase } from "../components";
+import {
+  Hero,
+  AllCategories,
+  RecipesShowcase,
+  ChefCTA,
+  InstagramCTA,
+} from "../components";
 
 const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -19,6 +25,8 @@ const HomePage = () => {
         recipes={recipes}
         setRecipes={setRecipes}
       />
+      <ChefCTA />
+      <InstagramCTA />
     </>
   );
 };

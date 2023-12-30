@@ -19,7 +19,7 @@ const SocialLinks = () => (
 
 const Navbar = () => {
   return (
-    <header className="flex justify-between items-center border-b-[1px] border-b-[#0000001A] py-7 px-[5rem] max-w-[100rem] mx-auto">
+    <header className="padding-x max-width flex justify-between items-center border-b-[1px] border-b-[#0000001A] py-7">
       <Link to="/" className="font-lobster text-lg">
         Foodieland<span className="text-[#FF7426]">.</span>
       </Link>

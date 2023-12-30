@@ -63,7 +63,7 @@ const AllCategories = ({
   };
 
   return (
-    <section className="mb-[3rem] px-[5rem] max-w-[100rem] mx-auto">
+    <section className="padding-x max-width mb-[3rem]">
       <h2 className="font-bold text-4xl mb-[4rem]">Categories</h2>
       <motion.div
         ref={carousel}

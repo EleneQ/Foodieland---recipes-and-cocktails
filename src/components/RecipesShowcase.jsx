@@ -62,7 +62,7 @@ const RecipesShowcase = ({ selectedCategory, recipes, setRecipes }) => {
   const paginate = (pageNum) => setCurrentPage(pageNum);
 
   return (
-    <section className="px-[5rem] max-w-[100rem] mx-auto mt-[7rem]">
+    <section className="padding-x max-width mt-[7rem]">
       <div className="text-center max-w-[700px] mx-auto mb-[5rem]">
         <h2 className="font-semibold text-4xl pb-2">
           Simple and tasty recipes
@@ -92,7 +92,7 @@ const RecipesShowcase = ({ selectedCategory, recipes, setRecipes }) => {
 
             return (
               <li
-                className="w-[24rem] rounded-3xl px-3 pb-3 bg-gradient-to-b from-transparent via-white to-blue-200 cursor-pointer"
+                className="rounded-3xl px-3 pb-3 bg-gradient-to-b from-transparent via-white to-blue-200 cursor-pointer"
                 key={idMeal}
                 onClick={() => {}}
               >

@@ -4,3 +4,5 @@ export { default as AllCategories } from "./AllCategories";
 export { default as RecipesShowcase } from "./RecipesShowcase";
 export { default as Pagination } from "./Pagination";
 export { default as SearchBar } from "./SearchBar";
+export { default as ChefCTA } from "./ChefCTA";
+export { default as InstagramCTA } from "./InstagramCTA";

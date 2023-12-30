@@ -1,3 +1,8 @@
+import post1 from "../images/InstagramCTA/post1.png";
+import post2 from "../images/InstagramCTA/post2.png";
+import post3 from "../images/InstagramCTA/post3.png";
+import post4 from "../images/InstagramCTA/post4.png";
+
 export const navLinks = [
   {
     id: "122",
@@ -23,5 +28,28 @@ export const navLinks = [
     id: "dsds22",
     name: "About Us",
     link: "/about",
+  },
+];
+
+export const instagramPosts = [
+  {
+    id: "dsds3",
+    img: post1,
+    alt: "post1",
+  },
+  {
+    id: "ewwewe2",
+    img: post2,
+    alt: "post2",
+  },
+  {
+    id: "ewwe542",
+    img: post3,
+    alt: "post3",
+  },
+  {
+    id: "211gdfg",
+    img: post4,
+    alt: "post4",
   },
 ];
