@@ -1,9 +1,11 @@
 import classNames from "classnames";
 // import { PropTypes } from "prop-types";
 
-function Button({ children, primary, className, ...rest }) {
-  const classes = classNames(className, "rounded-xl px-5 py-2 font-[14px]", {
-    "text-white bg-black hover:bg-transparent hover:text-black": primary,
+function Button({ children, primary, flexed, className, ...rest }) {
+  const classes = classNames(className, "rounded-xl px-5 py-3 text-[13.5px]", {
+    "text-white bg-black hover:bg-transparent hover:text-black border-black border-2 hover:font-semibold":
+      primary,
+    "flex gap-3 items-center": flexed,
   });
 
   return (

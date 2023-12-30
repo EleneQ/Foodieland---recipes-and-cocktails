@@ -6,6 +6,7 @@ import {
   RecipesShowcase,
   ChefCTA,
   InstagramCTA,
+  DeliciousRecipesSelection,
 } from "../components";
 
 const HomePage = () => {
@@ -27,6 +28,7 @@ const HomePage = () => {
       />
       <ChefCTA />
       <InstagramCTA />
+      <DeliciousRecipesSelection />
     </>
   );
 };
