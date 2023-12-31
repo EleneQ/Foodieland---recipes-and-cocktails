@@ -1,11 +1,11 @@
 import classNames from "classnames";
-// import { PropTypes } from "prop-types";
+import { PropTypes } from "prop-types";
 
 function Button({ children, primary, flexed, className, ...rest }) {
   const classes = classNames(className, "rounded-xl px-5 py-3 text-[13.5px]", {
     "text-white bg-black hover:bg-transparent hover:text-black border-black border-2 hover:font-semibold":
       primary,
-    "flex gap-3 items-center": flexed,
+    "flex gap-2 md:gap-3 items-center": flexed,
   });
 
   return (
@@ -15,14 +15,23 @@ function Button({ children, primary, flexed, className, ...rest }) {
   );
 }
 
-Button.propTypes = {
-  checkVariationValue: ({ primary, secondary, tertiary }) => {
-    const count = Number(!!primary) + Number(!!secondary) + Number(!!tertiary);
+// Button.propTypes = {
+//   checkVariationValue: ({ primary, secondary, tertiary }) => {
+//     const count = Number(!!primary) + Number(!!secondary) + Number(!!tertiary);
 
-    if (count > 1) {
-      return new Error("Only one of primary, secondary can be true");
-    }
-  },
+//     if (count > 1) {
+//       return new Error("Only one of primary, secondary can be true");
+//     }
+//   },
+// };
+
+Button.propTypes = {
+  children: PropTypes.node,
+  primary: PropTypes.bool,
+  secondary: PropTypes.bool,
+  tertiary: PropTypes.bool,
+  flexed: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default Button;

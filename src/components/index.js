@@ -8,3 +8,8 @@ export { default as ChefCTA } from "./ChefCTA";
 export { default as InstagramCTA } from "./InstagramCTA";
 export { default as Button } from "./Button";
 export { default as DeliciousRecipesSelection } from "./DeliciousRecipesSelection";
+export { default as RecipeCard } from "./RecipeCard";
+export { default as SubscriptionBanner } from "./SubscriptionBanner";
+export { default as Footer } from "./Footer";
+export { default as SocialLinks } from "./SocialLinks";
+export { default as Sticker } from "./Sticker";

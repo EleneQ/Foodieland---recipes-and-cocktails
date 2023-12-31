@@ -40,7 +40,7 @@ const AllCategories = ({
     const fetchRecipes = async () => {
       let url = "";
       if (!selectedCategory || selectedCategory === "all") {
-        url = "https://www.themealdb.com/api/json/v1/1/search.php?f=b";
+        url = "https://www.themealdb.com/api/json/v1/1/search.php?f=c";
       } else {
         url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`;
       }
@@ -63,14 +63,16 @@ const AllCategories = ({
   };
 
   return (
-    <section className="padding-x max-width mb-[3rem]">
-      <h2 className="font-bold text-4xl mb-[4rem]">Categories</h2>
+    <section className="padding-x max-width">
+      <h2 className="font-bold text-3xl md:text-4xl mb-10 md:mb-[4rem]">
+        Categories
+      </h2>
       <motion.div
         ref={carousel}
         className="carousel | cursor-pointer overflow-hidden"
       >
         <motion.ul
-          className="inner-carousel | inline-flex items-center gap-10 rounded-2xl select-none"
+          className="inner-carousel | inline-flex items-center gap-6 md:gap-10 rounded-2xl select-none"
           drag="x"
           dragConstraints={{ right: 0, left: -width }}
         >
@@ -86,7 +88,7 @@ const AllCategories = ({
             return (
               <motion.li
                 key={idCategory}
-                className="flex flex-col items-center justify-center gap-[1.5rem] text-[17px] font-bold px-5 pb-3 w-[9rem]"
+                className="flex flex-col items-center justify-center gap-3 md:gap-[1.5rem] text-[15px] md:text-[17px] font-bold px-5 pb-3 w-[7.8rem] md:w-[9rem]"
                 style={{
                   borderRadius: "inherit",
                   backgroundImage: gradientsArray[gradientIndex] || "",

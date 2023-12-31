@@ -7,6 +7,7 @@ import {
   ChefCTA,
   InstagramCTA,
   DeliciousRecipesSelection,
+  SubscriptionBanner,
 } from "../components";
 
 const HomePage = () => {
@@ -29,6 +30,7 @@ const HomePage = () => {
       <ChefCTA />
       <InstagramCTA />
       <DeliciousRecipesSelection />
+      <SubscriptionBanner />
     </>
   );
 };

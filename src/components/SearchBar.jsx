@@ -36,7 +36,11 @@ const SearchBar = ({ selectedCategory, setRecipes }) => {
   };
 
   return (
-    <form className="text-right mb-7" onSubmit={(e) => submitHandler(e)}>
+    <form
+      className="max-md:ml-[15%] md:ml-0 mt-9 md:mt-[5rem] mb-7 flex items-center justify-center md:justify-end"
+      onSubmit={(e) => submitHandler(e)}
+      action="#"
+    >
       <input
         className="border-black border-2 rounded-2xl py-[6px] px-4 text-[14px]"
         type="text"

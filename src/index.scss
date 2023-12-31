@@ -5,6 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .padding-x {
+    @apply px-[1.3rem] sm:px-[calc(4vw+1rem)] lg:px-[5rem];
+  }
+}
+
 body {
   font-family: "Inter", sans-serif;
 }
@@ -14,25 +20,39 @@ body {
   overflow-x: hidden;
 }
 
-.padding-x {
-  padding-inline: 5rem;
-}
-
 .max-width {
   max-width: 100rem;
   margin-inline: auto;
 }
 
+/* HERO SECTION */
 .hero__container {
-  display: grid;
-  grid-template-rows: 0.5fr 1fr;
-  justify-content: center;
+  background-image: url("./images/ChefCTA/tomato.png"),
+    url("./images/ChefCTA/steak.png"), url("./images/ChefCTA/cabbage.png");
+  background-repeat: no-repeat;
+  background-position: bottom 45px right 80px, bottom 110px right 15px,
+    top 50px right 30px;
+  background-size: 40px, 70px, 55px;
 }
 
-@media (min-width: 830px) {
+@media (min-width: 640px) {
   .hero__container {
-    grid-template-rows: none;
+    background-image: url("./images/ChefCTA/tomato.png"),
+      url("./images/ChefCTA/steak.png"), url("./images/ChefCTA/cabbage.png"),
+      url("./images/ChefCTA/onion.png");
+    background-position: bottom 130px right 80px, top 70px right 50px,
+      bottom 150px left 60px, top 160px left 90px;
+    background-size: auto, 80px, 55px, 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__container {
+    display: grid;
+    justify-content: center;
     grid-template-columns: 1fr 0.8fr;
+
+    background-image: none;
   }
 }
 
@@ -42,14 +62,30 @@ body {
   }
 }
 
+/* RECIPE GRID */
 .recipe-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(auto-fill, minmax(20rem, 24rem));
-  justify-content: space-between;
+  grid-template-columns: minmax(9rem, 19rem);
+  justify-content: center;
   align-items: center;
-  column-gap: 6rem;
-  row-gap: 2.5rem;
+  column-gap: 2rem;
+  row-gap: 1rem;
+  grid-auto-rows: 1fr;
+}
+
+@media (min-width: 500px) {
+  .recipe-grid {
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .recipe-grid {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    row-gap: 2.5rem;
+    column-gap: clamp(2.5rem, 5vw + 1rem, 7rem);
+  }
 }
 
 //text??
@@ -81,11 +117,7 @@ body {
 
 /* CHEF CTA */
 .chef-cta {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
+  position: relative;
 }
 
 .chef-cta-img-container {
@@ -95,28 +127,133 @@ body {
     #e7f9fd 100%
   );
   border-radius: 2rem;
-  position: relative;
   height: 100%;
   width: 100%;
 
   div {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-65%);
-    height: 167%;
+    bottom: -5px;
+    right: 4%;
+    height: 55%;
     aspect-ratio: 1;
-    z-index: 2;
+    z-index: -1;
 
     background-image: url("./images/ChefCTA/tomato.png"),
-      url("./images/ChefCTA/steak.png"), url("./images/ChefCTA/onion.png"),
-      url("./images/ChefCTA/cabbage.png");
+      url("./images/ChefCTA/onion.png");
     background-repeat: no-repeat;
-    background-position: left 10px bottom 120px, left 60px top 85px,
-      right 100px top 120px, right top 200px;
+    background-position: left 20px top 30px, left bottom 20px;
+    background-size: 32px, 35px;
   }
 
   img {
     height: 100%;
+  }
+}
+
+@media (min-width: 500px) {
+  .chef-cta-img-container div {
+    bottom: -25px;
+    right: 10%;
+    height: 75%;
+  }
+}
+
+@media (min-width: 800px) {
+  .chef-cta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    position: static;
+  }
+
+  .chef-cta-img-container {
+    position: relative;
+  }
+
+  .chef-cta-img-container div {
+    left: 50%;
+    transform: translateX(-55%);
+    height: 135%;
+    bottom: 0;
+    right: 0;
+    background-image: url("./images/ChefCTA/tomato.png"),
+      url("./images/ChefCTA/steak.png"), url("./images/ChefCTA/onion.png"),
+      url("./images/ChefCTA/cabbage.png");
+    background-position: left 10px bottom 120px, left 60px top 75px,
+      right 70px top 80px, right 10px top 140px;
+    background-size: 40px, 65px, 40px, 50px;
+    z-index: 2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .chef-cta-img-container div {
+    transform: translateX(-65%);
+    height: 167%;
+    background-position: left 10px bottom 120px, left 60px top 85px,
+      right 100px top 120px, right top 200px;
+  }
+}
+
+/* DELICIOUS RECIPES */
+.delicious-recipes-grid {
+  display: grid;
+  grid-template-columns: minmax(9rem, 19rem);
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  grid-auto-rows: 1fr;
+}
+
+@media (min-width: 500px) {
+  .delicious-recipes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .delicious-recipes-grid {
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+  }
+}
+
+/* SUBSCRIBTION BANNER */
+.subscribtion-banner {
+  background-image: url("./images/SubscribtionBanner/vegetables.png"),
+    url("./images/SubscribtionBanner/salad.png");
+  background-repeat: no-repeat;
+  background-position: bottom left, bottom right;
+  background-size: 200px, 130px;
+}
+
+@media (min-width: 700px) {
+  .subscribtion-banner {
+    background-image: url("./images/SubscribtionBanner/vegetables.png"),
+      url("./images/SubscribtionBanner/salad.png"),
+      url("./images/SubscribtionBanner/herb.png");
+    background-position: bottom left, bottom right, bottom 90px right 17%;
+    background-size: 250px, 160px, 65px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .subscribtion-banner {
+    background-position: bottom left, bottom right, bottom 100px right 20%;
+    background-size: auto;
+  }
+}
+
+/* FOOTER */
+@media (min-width: 768px) {
+  .footer-grid {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: ". text links";
   }
 }

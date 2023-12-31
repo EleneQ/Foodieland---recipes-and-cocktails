@@ -2,14 +2,14 @@ import chef from "../images/ChefCTA/chef.png";
 
 const ChefCTA = () => {
   return (
-    <section className="chef-cta | padding-x max-width mt-[14rem] mb-[6rem]">
-      <div className="max-w-[508px] pb-[5rem]">
-        <h2 className="text-4xl font-bold">
+    <section className="chef-cta | padding-x max-width mt-[5rem] md:mt-[14rem] mb-[6rem]">
+      <div className="max-w-[25rem] md:max-w-[508px] pb-[5rem]">
+        <h2 className="text-[1.7rem] md:text-4xl font-bold leading-9">
           Everyone can be a chef in their own kitchen
         </h2>
-        <p className="text-[#00000099] mt-3">
+        <p className="text-[#00000099] text-[14px] md:text-base mt-4 md:mt-3">
           Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqut enim ad minim{" "}
+          tempor incididunt ut labore et dolore magna aliqut enim ad minim
         </p>
         <button className="mt-[3rem] bg-black text-white text-[13px] px-8 py-3 rounded-xl">
           Learn More

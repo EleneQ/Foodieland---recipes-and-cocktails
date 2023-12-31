@@ -1,21 +1,7 @@
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 import { navLinks } from "../constans/data";
-
-const SocialLinks = () => (
-  <ul className="flex gap-[2rem] items-center justify-center">
-    <li className="cursor-pointer">
-      <FaFacebookF />
-    </li>
-    <li className="cursor-pointer">
-      <FaTwitter />
-    </li>
-    <li className="cursor-pointer">
-      <FaInstagram />
-    </li>
-  </ul>
-);
+import { SocialLinks } from "./";
 
 const Navbar = () => {
   return (
