@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchDataFromApi } from "../utils/fetchDataFromApi";
+import { fetchDataFromApi } from "../../utils/fetchDataFromApi";
 import { PropTypes } from "prop-types";
 
 const SearchBar = ({ selectedCategory, setRecipes }) => {

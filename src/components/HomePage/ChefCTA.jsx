@@ -1,4 +1,4 @@
-import chef from "../images/ChefCTA/chef.png";
+import { chef } from "../../images";
 
 const ChefCTA = () => {
   return (

@@ -1,7 +1,7 @@
 import { FaInstagram } from "react-icons/fa";
 
-import { instagramPosts } from "../constans/data";
-import { Button } from "./";
+import { instagramPosts } from "../../constans/data";
+import { Button } from "../";
 
 const InstagramCTA = () => {
   return (

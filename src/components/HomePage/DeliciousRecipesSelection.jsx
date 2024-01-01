@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-import { fetchDataFromApi } from "../utils/fetchDataFromApi";
-import { RecipeCard } from "./";
+import { fetchDataFromApi } from "../../utils/fetchDataFromApi";
+import { RecipeCard } from "..";
 
 const DeliciousRecipesSelection = () => {
   const [recipes, setRecipes] = useState([]);

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { PropTypes } from "prop-types";
 
-import { fetchDataFromApi } from "../utils/fetchDataFromApi";
+import { fetchDataFromApi } from "../../utils/fetchDataFromApi";
 
 const gradientsArray = [
   "linear-gradient(180deg, rgba(112, 130, 70, 0.00) 0%, rgba(112, 130, 70, 0.1) 100%)",
