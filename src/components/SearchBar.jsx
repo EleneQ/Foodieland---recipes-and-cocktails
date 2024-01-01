@@ -37,7 +37,7 @@ const SearchBar = ({ selectedCategory, setRecipes }) => {
 
   return (
     <form
-      className="max-md:ml-[15%] md:ml-0 mt-9 md:mt-[5rem] mb-7 flex items-center justify-center md:justify-end"
+      className="max-md:ml-[15%] mt-5 md:mt-[4rem] mb-7 flex items-center justify-center md:justify-end"
       onSubmit={(e) => submitHandler(e)}
       action="#"
     >

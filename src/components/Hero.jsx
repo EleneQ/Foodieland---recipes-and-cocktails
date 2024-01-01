@@ -3,8 +3,9 @@ import { PiForkKnifeFill } from "react-icons/pi";
 import scroll from "../images/Hero/scroll.png";
 import profile from "../images/Hero/profile.png";
 import chicken from "../images/Hero/chicken.png";
+import sticker from "../images/Hero/sticker.svg";
 
-import { Button, Sticker } from "./";
+import { Button } from "./";
 
 const Hero = () => {
   return (
@@ -68,7 +69,10 @@ const Hero = () => {
           </div>
         </div>
 
-        <Sticker />
+        <img
+          className="absolute hidden md:block left-[50%] lg:-translate-x-[65%] top-[3rem] max-xl:max-w-[100px]"
+          src={sticker}
+        />
 
         {/* chicken pic */}
         <div

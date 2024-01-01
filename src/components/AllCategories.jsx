@@ -54,7 +54,11 @@ const AllCategories = ({
   if (!categories.length) return "Loading...";
 
   const categorySelectionHandler = (categoryName) => {
-    setSelectedCategory(categoryName);
+    if (selectedCategory.toLowerCase() === categoryName.toLowerCase()) {
+      setSelectedCategory("all");
+    } else {
+      setSelectedCategory(categoryName);
+    }
 
     window.scrollTo({
       top: 1100,
@@ -88,7 +92,11 @@ const AllCategories = ({
             return (
               <motion.li
                 key={idCategory}
-                className="flex flex-col items-center justify-center gap-3 md:gap-[1.5rem] text-[15px] md:text-[17px] font-bold px-5 pb-3 w-[7.8rem] md:w-[9rem]"
+                className={`flex flex-col items-center justify-center gap-3 md:gap-[1.5rem] text-[15px] md:text-[17px] font-bold px-5 pb-3 w-[7.8rem] md:w-[9rem] ${
+                  selectedCategory.toLowerCase() === categoryName.toLowerCase()
+                    ? "border-b-4 border-t-4 border-black"
+                    : ""
+                }`}
                 style={{
                   borderRadius: "inherit",
                   backgroundImage: gradientsArray[gradientIndex] || "",
