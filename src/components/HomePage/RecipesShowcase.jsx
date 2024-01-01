@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { PropTypes } from "prop-types";
 
-import { Pagination, SearchBar, RecipeCard } from "..";
+import { Pagination } from "../";
+import { SearchBar, RecipeCard } from "./";
 
 const RecipesShowcase = ({ selectedCategory, recipes, setRecipes }) => {
   const [currentPage, setCurrentPage] = useState(1);

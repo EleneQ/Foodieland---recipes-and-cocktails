@@ -1,14 +1,5 @@
 export { default as Navbar } from "./Navbar";
-export { default as Hero } from "./HomePage/Hero";
-export { default as AllCategories } from "./HomePage/AllCategories";
-export { default as RecipesShowcase } from "./HomePage/RecipesShowcase";
 export { default as Pagination } from "./Pagination";
-export { default as SearchBar } from "./HomePage/SearchBar";
-export { default as ChefCTA } from "./HomePage/ChefCTA";
-export { default as InstagramCTA } from "./HomePage/InstagramCTA";
 export { default as Button } from "./Button";
-export { default as DeliciousRecipesSelection } from "./HomePage/DeliciousRecipesSelection";
-export { default as RecipeCard } from "./HomePage/RecipeCard";
-export { default as SubscriptionBanner } from "./HomePage/SubscriptionBanner";
 export { default as Footer } from "./Footer";
 export { default as SocialLinks } from "./SocialLinks";

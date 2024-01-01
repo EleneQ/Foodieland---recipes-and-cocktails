@@ -78,8 +78,8 @@ body {
 
 /* HERO SECTION */
 .hero__container {
-  background-image: url("./images/ChefCTA/tomato.png"),
-    url("./images/ChefCTA/steak.png"), url("./images/ChefCTA/cabbage.png");
+  background-image: url("../images/Foods/tomato.png"),
+    url("../images/Foods/steak.png"), url("../images/Foods/cabbage.png");
   background-repeat: no-repeat;
   background-position: bottom 45px right 80px, bottom 110px right 15px,
     top 50px right 30px;
@@ -88,9 +88,9 @@ body {
 
 @media (min-width: 640px) {
   .hero__container {
-    background-image: url("./images/ChefCTA/tomato.png"),
-      url("./images/ChefCTA/steak.png"), url("./images/ChefCTA/cabbage.png"),
-      url("./images/ChefCTA/onion.png");
+    background-image: url("../images/Foods/tomato.png"),
+      url("../images/Foods/steak.png"), url("../images/Foods/cabbage.png"),
+      url("./images/Foods/onion.png");
     background-position: bottom 130px right 80px, top 70px right 50px,
       bottom 150px left 60px, top 160px left 90px;
     background-size: auto, 80px, 55px, 50px;
@@ -160,8 +160,8 @@ body {
     aspect-ratio: 1;
     z-index: -1;
 
-    background-image: url("./images/ChefCTA/tomato.png"),
-      url("./images/ChefCTA/onion.png");
+    background-image: url("../images/Foods/tomato.png"),
+      url("../images/Foods/onion.png");
     background-repeat: no-repeat;
     background-position: left 20px top 30px, left bottom 20px;
     background-size: 32px, 35px;
@@ -200,9 +200,9 @@ body {
     height: 135%;
     bottom: 0;
     right: 0;
-    background-image: url("./images/ChefCTA/tomato.png"),
-      url("./images/ChefCTA/steak.png"), url("./images/ChefCTA/onion.png"),
-      url("./images/ChefCTA/cabbage.png");
+    background-image: url("../images/Foods/tomato.png"),
+      url("../images/Foods/steak.png"), url("../images/Foods/onion.png"),
+      url("../images/Foods/cabbage.png");
     background-position: left 10px bottom 120px, left 60px top 75px,
       right 70px top 80px, right 10px top 140px;
     background-size: 40px, 65px, 40px, 50px;
@@ -243,8 +243,8 @@ body {
 
 /* SUBSCRIBTION BANNER */
 .subscribtion-banner {
-  background-image: url("./images/SubscribtionBanner/vegetables.png"),
-    url("./images/SubscribtionBanner/salad.png");
+  background-image: url("../images/SubscribtionBanner/vegetables.png"),
+    url("../images/SubscribtionBanner/salad.png");
   background-repeat: no-repeat;
   background-position: bottom left, bottom right;
   background-size: 200px, 130px;
@@ -252,9 +252,9 @@ body {
 
 @media (min-width: 700px) {
   .subscribtion-banner {
-    background-image: url("./images/SubscribtionBanner/vegetables.png"),
-      url("./images/SubscribtionBanner/salad.png"),
-      url("./images/SubscribtionBanner/herb.png");
+    background-image: url("../images/SubscribtionBanner/vegetables.png"),
+      url("../images/SubscribtionBanner/salad.png"),
+      url("../images/SubscribtionBanner/herb.png");
     background-position: bottom left, bottom right, bottom 90px right 17%;
     background-size: 250px, 160px, 65px;
   }

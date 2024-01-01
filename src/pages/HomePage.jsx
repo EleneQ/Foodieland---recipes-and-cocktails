@@ -8,7 +8,7 @@ import {
   InstagramCTA,
   DeliciousRecipesSelection,
   SubscriptionBanner,
-} from "../components";
+} from "../components/HomePage";
 
 const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
