@@ -20,7 +20,10 @@ const RecipeCard = ({ recipe, selectedCategory, className }) => {
 
   return (
     <Link to={`/${idMeal}`}>
-      <li className={classes} onClick={() => {}}>
+      <li
+        className={classes}
+        onClick={() => scrollTo({ top: 230, behavior: "smooth" })}
+      >
         <img
           className="max-h-[250px] mx-auto aspect-[1/0.7] object-cover"
           style={{ borderRadius: "inherit" }}

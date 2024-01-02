@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { PropTypes } from "prop-types";
 
 import { fetchDataFromApi } from "../../utils/fetchDataFromApi";
+import useFetchRecipes from "../../hooks/useFetchRecipes";
 
 const gradientsArray = [
   "linear-gradient(180deg, rgba(112, 130, 70, 0.00) 0%, rgba(112, 130, 70, 0.1) 100%)",
@@ -35,21 +36,13 @@ const AllCategories = ({
     fetchCategories();
   }, []);
 
-  //fetch recipes based on category
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      let url = "";
-      if (!selectedCategory || selectedCategory === "all") {
-        url = "https://www.themealdb.com/api/json/v1/1/search.php?f=c";
-      } else {
-        url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`;
-      }
-
-      const data = await fetchDataFromApi(url);
-      setRecipes(data.meals || []);
-    };
-    fetchRecipes();
-  }, [selectedCategory]);
+  useFetchRecipes(
+    setRecipes,
+    !selectedCategory || selectedCategory === "all"
+      ? "https://www.themealdb.com/api/json/v1/1/search.php?f=c"
+      : `https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`,
+    selectedCategory
+  );
 
   if (!categories.length) return "Loading...";
 

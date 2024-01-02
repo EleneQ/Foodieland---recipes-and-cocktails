@@ -53,3 +53,21 @@ export const instagramPosts = [
     alt: "post4",
   },
 ];
+
+export const dummyNutritionData = {
+  calories: 250,
+  totalWeight: 65,
+  totalDaily: {
+    FAT: { quantity: 0.3, unit: "%" },
+    ENERC_KCAL: { quantity: 20, unit: "%" },
+    FIBTG: { quantity: 3, unit: "%" },
+    CHOLE: { quantity: 0.2, unit: "%" },
+  },
+  healthLabels: [
+    "FAT_FREE",
+    "LOW_FAT_ABS",
+    "LOW_POTASSIUM",
+    "KIDNEY_FRIENDLY",
+    "LIVER_FRIENDLY",
+  ],
+};

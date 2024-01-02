@@ -6,4 +6,3 @@ export { default as ChefCTA } from "./ChefCTA";
 export { default as InstagramCTA } from "./InstagramCTA";
 export { default as DeliciousRecipesSelection } from "./DeliciousRecipesSelection";
 export { default as RecipeCard } from "./RecipeCard";
-export { default as SubscriptionBanner } from "./SubscriptionBanner";

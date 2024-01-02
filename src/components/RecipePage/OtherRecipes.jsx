@@ -32,7 +32,10 @@ const OtherRecipes = () => {
 
           return (
             <Link to={`/${idMeal}`} key={idMeal}>
-              <li className="flex gap-3 mb-5 items-center">
+              <li
+                className="flex gap-3 mb-5 items-center"
+                onClick={() => scrollTo({ top: 230, behavior: "smooth" })}
+              >
                 <img
                   className="rounded-3xl max-w-[170px] aspect-[1/0.75]"
                   src={img}

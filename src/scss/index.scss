@@ -78,8 +78,9 @@ body {
 
 /* HERO SECTION */
 .hero__container {
-  background-image: url("../images/Foods/tomato.png"),
-    url("../images/Foods/steak.png"), url("../images/Foods/cabbage.png");
+  background-image: url("../images/Shared/Foods/tomato.png"),
+    url("../images/Shared/Foods/steak.png"),
+    url("../images/Shared/Foods/cabbage.png");
   background-repeat: no-repeat;
   background-position: bottom 45px right 80px, bottom 110px right 15px,
     top 50px right 30px;
@@ -88,9 +89,10 @@ body {
 
 @media (min-width: 640px) {
   .hero__container {
-    background-image: url("../images/Foods/tomato.png"),
-      url("../images/Foods/steak.png"), url("../images/Foods/cabbage.png"),
-      url("./images/Foods/onion.png");
+    background-image: url("../images/Shared/Foods/tomato.png"),
+      url("../images/Shared/Foods/steak.png"),
+      url("../images/Shared/Foods/cabbage.png"),
+      url("../images/Shared/Foods/onion.png");
     background-position: bottom 130px right 80px, top 70px right 50px,
       bottom 150px left 60px, top 160px left 90px;
     background-size: auto, 80px, 55px, 50px;
@@ -160,8 +162,8 @@ body {
     aspect-ratio: 1;
     z-index: -1;
 
-    background-image: url("../images/Foods/tomato.png"),
-      url("../images/Foods/onion.png");
+    background-image: url("../images/Shared/Foods/tomato.png"),
+      url("../images/Shared/Foods/onion.png");
     background-repeat: no-repeat;
     background-position: left 20px top 30px, left bottom 20px;
     background-size: 32px, 35px;
@@ -200,9 +202,10 @@ body {
     height: 135%;
     bottom: 0;
     right: 0;
-    background-image: url("../images/Foods/tomato.png"),
-      url("../images/Foods/steak.png"), url("../images/Foods/onion.png"),
-      url("../images/Foods/cabbage.png");
+    background-image: url("../images/Shared/Foods/tomato.png"),
+      url("../images/Shared/Foods/steak.png"),
+      url("../images/Shared/Foods/onion.png"),
+      url("../images/Shared/Foods/cabbage.png");
     background-position: left 10px bottom 120px, left 60px top 75px,
       right 70px top 80px, right 10px top 140px;
     background-size: 40px, 65px, 40px, 50px;
@@ -219,8 +222,8 @@ body {
   }
 }
 
-/* DELICIOUS RECIPES */
-.delicious-recipes-grid {
+/* ADDITIONAL RECIPES */
+.additional-recipes-grid {
   @include grid-center;
   grid-template-columns: minmax(9rem, 19rem);
   column-gap: 2rem;
@@ -229,13 +232,13 @@ body {
 }
 
 @media (min-width: 500px) {
-  .delicious-recipes-grid {
+  .additional-recipes-grid {
     grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   }
 }
 
 @media (min-width: 1000px) {
-  .delicious-recipes-grid {
+  .additional-recipes-grid {
     grid-template-columns: repeat(4, 1fr);
     justify-content: space-between;
   }
@@ -296,4 +299,20 @@ body {
   background-image: url("../images/EatHealthCard/star.png"),
     linear-gradient(180deg, #357355 0%, #1d483b 100%);
   background-repeat: no-repeat;
+}
+
+.ingredient-info {
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 0.6rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+    align-items: center;
+    color: rgba(0, 0, 0, 0.6);
+
+    span {
+      color: black;
+      font-weight: 500;
+    }
+  }
 }

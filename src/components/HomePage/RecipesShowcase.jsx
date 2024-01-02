@@ -65,7 +65,7 @@ const RecipesShowcase = ({ selectedCategory, recipes, setRecipes }) => {
         <h2 className="font-semibold text-3xl md:text-4xl pb-2">
           Simple and tasty recipes
         </h2>
-        <p className="text-[#00000099] text-[14px] md:text-[15px]">
+        <p className="text-gray-400 text-[14px] md:text-[15px]">
           Take a look at the recipes we offer. If you would like to see specific
           recipes, select one of the categories above or seach by name
         </p>

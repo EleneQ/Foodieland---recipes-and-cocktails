@@ -4,14 +4,14 @@ import { FiPrinter, FiShare } from "react-icons/fi";
 import PropTypes from "prop-types";
 
 import { PosterProfile } from "../";
+import { NutritionInfoCard } from "./";
 
-const RecipeInfo = ({ recipeInfo }) => {
+const RecipeInfo = ({ recipeInfo, ingredients, measurements }) => {
   const randPrepTime = Math.floor(Math.random() * (25 - 5 + 1)) + 5;
 
   const {
     strMeal: recipeName,
     strCategory: category,
-    // strArea: area,
     strMealThumb: recipeImg,
     strYoutube: recipeYoutubeLink,
   } = recipeInfo;
@@ -55,14 +55,23 @@ const RecipeInfo = ({ recipeInfo }) => {
       </div>
 
       <div>
-        <div>
-          <a href={recipeYoutubeLink} target="_blank" rel="noreferrer">
+        <div className="flex gap-5 justify-between overflow-hidden items-stretch">
+          <a
+            className="flex-1"
+            href={recipeYoutubeLink}
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="rounded-2xl h-[600px] aspect-[1/0.7]"
               src={recipeImg}
               alt={recipeName}
             />
           </a>
+          <NutritionInfoCard
+            ingredients={ingredients}
+            measurements={measurements}
+          />
         </div>
         <p className="text-gray-400 text-[15px] my-[2.5rem]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -82,10 +91,11 @@ RecipeInfo.propTypes = {
   recipeInfo: PropTypes.shape({
     strMeal: PropTypes.string.isRequired,
     strCategory: PropTypes.string.isRequired,
-    // strArea: PropTypes.string.isRequired,
     strMealThumb: PropTypes.string.isRequired,
     strYoutube: PropTypes.string.isRequired,
   }).isRequired,
+  ingredients: PropTypes.array.isRequired,
+  measurements: PropTypes.array.isRequired,
 };
 
 export default RecipeInfo;

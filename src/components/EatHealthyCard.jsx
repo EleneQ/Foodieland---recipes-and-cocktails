@@ -2,11 +2,11 @@ import { healthy } from "../images";
 
 const EatHealthyCard = () => {
   return (
-    <div className="eat-healthy-card | text-center max-w-[400px] aspect-square pt-[3rem] mx-auto mt-[3rem]">
-      <p className="text-white font-lobster">
+    <div className="eat-healthy-card | text-center max-w-[400px] aspect-square pt-[2.5rem] mx-auto mt-[2rem]">
+      <p className="text-white font-lobster font-lg">
         Don’t forget to eat healthy food
       </p>
-      <img src={healthy} alt="tuna salad" />
+      <img className="mt-[-20px]" src={healthy} alt="tuna salad" />
     </div>
   );
 };

@@ -7,8 +7,8 @@ import {
   ChefCTA,
   InstagramCTA,
   DeliciousRecipesSelection,
-  SubscriptionBanner,
 } from "../components/HomePage";
+import { SubscriptionBanner } from "../components";
 
 const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
