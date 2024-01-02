@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const RecipeCard = ({ recipe, selectedCategory, className }) => {
   const classes = classnames("rounded-3xl cursor-pointer", className);
 
-  const randomMinutes = Math.floor(Math.random() * (40 - 20 + 1)) + 20;
+  const randomMinutes = Math.floor(Math.random() * (50 - 25 + 1)) + 25;
 
   const {
     idMeal,

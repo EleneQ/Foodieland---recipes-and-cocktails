@@ -6,3 +6,15 @@
   max-width: 100rem;
   margin-inline: auto;
 }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-center-between {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+}

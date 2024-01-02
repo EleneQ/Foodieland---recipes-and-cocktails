@@ -15,7 +15,7 @@ const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
 
   return (
-    <>
+    <main>
       <Hero />
       <AllCategories
         selectedCategory={selectedCategory}
@@ -31,7 +31,7 @@ const HomePage = () => {
       <InstagramCTA />
       <DeliciousRecipesSelection />
       <SubscriptionBanner />
-    </>
+    </main>
   );
 };
 export default HomePage;

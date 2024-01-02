@@ -277,3 +277,23 @@ body {
     grid-template-areas: ". text links";
   }
 }
+
+/* RECIPE INFO DETAILS */
+.recipe-info-details > * {
+  padding-right: 2rem;
+
+  &:not(:first-child) {
+    padding-left: 2rem;
+  }
+
+  &:not(:last-child) {
+    border-right: rgba(0, 0, 0, 0.1) 1px solid;
+  }
+}
+
+/* EAT HEALTHY CARD */
+.eat-healthy-card {
+  background-image: url("../images/EatHealthCard/star.png"),
+    linear-gradient(180deg, #357355 0%, #1d483b 100%);
+  background-repeat: no-repeat;
+}

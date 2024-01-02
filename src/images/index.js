@@ -1,8 +1,12 @@
-/* FOODS */
-import cabbage from "./Foods/cabbage.png";
-import onion from "./Foods/onion.png";
-import steak from "./Foods/steak.png";
-import tomato from "./Foods/tomato.png";
+/* SHARED */
+
+/* foods */
+import cabbage from "./Shared/Foods/cabbage.png";
+import onion from "./Shared/Foods/onion.png";
+import steak from "./Shared/Foods/steak.png";
+import tomato from "./Shared/Foods/tomato.png";
+
+import profile from "./Shared/profile.png";
 
 /* CHEF CTA */
 import chef from "./ChefCTA/chef.png";
@@ -10,7 +14,6 @@ import chef from "./ChefCTA/chef.png";
 /* HERO */
 import chicken from "./Hero/chicken.png";
 import hand from "./Hero/hand.png";
-import profile from "./Hero/profile.png";
 import scroll from "./Hero/scroll.png";
 import sticker from "./Hero/sticker.svg";
 
@@ -24,6 +27,12 @@ import post4 from "./InstagramCTA/post4.png";
 import herb from "./SubscribtionBanner/herb.png";
 import salad from "./SubscribtionBanner/salad.png";
 import vegetables from "./SubscribtionBanner/vegetables.png";
+
+/* EAT HEALTHY CARD */
+import healthy from "./EatHealthCard/healthy.png";
+
+/* COOKING DIRECTIONS */
+import womanCooking from "./CookingDirections/womanCooking.png";
 
 export {
   cabbage,
@@ -43,4 +52,6 @@ export {
   salad,
   vegetables,
   sticker,
+  healthy,
+  womanCooking,
 };
