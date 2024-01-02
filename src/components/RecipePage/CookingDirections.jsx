@@ -5,7 +5,7 @@ import { womanCooking } from "../../images";
 const CookingDirections = ({ recipeInfo }) => {
   const { strInstructions: directions } = recipeInfo;
 
-  return <div>{directions}</div>;
+  return <div>{directions}</div>; 
 };
 
 CookingDirections.propTypes = {
