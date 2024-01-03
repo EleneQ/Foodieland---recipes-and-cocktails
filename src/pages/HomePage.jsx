@@ -8,7 +8,7 @@ import {
   InstagramCTA,
   DeliciousRecipesSelection,
 } from "../components/HomePage";
-import { SubscriptionBanner } from "../components";
+import { SubscribtionBanner } from "../components";
 
 const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -30,7 +30,7 @@ const HomePage = () => {
       <ChefCTA />
       <InstagramCTA />
       <DeliciousRecipesSelection />
-      <SubscriptionBanner />
+      <SubscribtionBanner />
     </main>
   );
 };

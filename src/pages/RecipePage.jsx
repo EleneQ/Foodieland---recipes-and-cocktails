@@ -9,7 +9,7 @@ import {
 } from "../components/RecipePage";
 import {
   EatHealthyCard,
-  SubscriptionBanner,
+  SubscribtionBanner,
   AdditionalRecipes,
 } from "../components";
 import { fetchDataFromApi } from "../utils/fetchDataFromApi";
@@ -77,7 +77,7 @@ const RecipePage = () => {
         </div>
       </div>
 
-      <SubscriptionBanner />
+      <SubscribtionBanner />
 
       <section className="padding-x max-width mt-[6rem] mb-[6rem] md:mb-[7rem]">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-8">

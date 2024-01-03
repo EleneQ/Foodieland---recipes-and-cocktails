@@ -19,7 +19,7 @@ const RecipeCard = ({ recipe, selectedCategory, className }) => {
   } = recipe;
 
   return (
-    <Link to={`/${idMeal}`}>
+    <Link to={`/recipe/${idMeal}`}>
       <li
         className={classes}
         onClick={() => scrollTo({ top: 230, behavior: "smooth" })}

@@ -37,6 +37,9 @@ import womanCooking from "./CookingDirections/womanCooking.png";
 /* RECIPE INFO */
 import playButton from "./RecipeInfo/playButton.svg";
 
+/* CONTACT US */
+import chefSmiling from "./ContactUs/chefSmiling.png";
+
 export {
   cabbage,
   onion,
@@ -58,4 +61,5 @@ export {
   healthy,
   womanCooking,
   playButton,
+  chefSmiling,
 };
