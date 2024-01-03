@@ -8,7 +8,7 @@ const PosterProfile = ({ className }) => {
   return (
     <div className={classes}>
       <img
-        className="w-[45px]"
+        className="w-[40px] md:w-[45px]"
         src={profile}
         alt="picture of recipe poster"
       />

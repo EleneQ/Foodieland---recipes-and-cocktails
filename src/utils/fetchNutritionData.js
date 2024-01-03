@@ -26,7 +26,11 @@ export const fetchNutritionData = async (ingredients) => {
 
     return data;
   } catch (error) {
-    console.error("Error fetching nutrition data:", error);
+    if (error.response && error.response.status === 429) {
+      console.log("Exceeded maximum request limit for the month");
+      return;
+    }
+    console.error("Error fetching nutrition data:", error.message);
     throw error;
   }
 };

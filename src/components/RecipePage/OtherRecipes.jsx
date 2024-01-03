@@ -19,8 +19,8 @@ const OtherRecipes = () => {
   if (!recipes.length) return "Loading...";
 
   return (
-    <section>
-      <h2 className="mb-10 text-3xl font-semibold">Other Recipes</h2>
+    <section className="mt-[2rem] md:mt-[1.5rem]">
+      <h2 className="mb-5 md:mb-10 text-3xl font-semibold">Other Recipes</h2>
       <ul>
         {recipes.slice(0, 3).map((recipe) => {
           const {

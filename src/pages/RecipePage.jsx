@@ -63,23 +63,25 @@ const RecipePage = () => {
         measurements={measurements}
       />
 
-      <div className="padding-x max-width flex justify-center gap-[4rem]">
-        <IngredientsList
-          ingredients={ingredients}
-          measurements={measurements}
-        />
+      <div className="padding-x max-width flex flex-col md:flex-row md:justify-between md:gap-[4rem]">
+        <div>
+          <IngredientsList
+            ingredients={ingredients}
+            measurements={measurements}
+          />
+          <CookingDirections recipeInfo={recipeInfo} />
+        </div>
         <div>
           <OtherRecipes />
           <EatHealthyCard />
         </div>
       </div>
 
-      <CookingDirections recipeInfo={recipeInfo} />
       <SubscriptionBanner />
 
-      <section className="padding-x max-width mt-[6rem] mb-[7rem]">
+      <section className="padding-x max-width mt-[6rem] mb-[6rem] md:mb-[7rem]">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-8">
-          You may like these recipe too
+          You may like these recipes too
         </h2>
         <AdditionalRecipes letterToSearchBy="e" maxRecipeAmount={4} />
       </section>

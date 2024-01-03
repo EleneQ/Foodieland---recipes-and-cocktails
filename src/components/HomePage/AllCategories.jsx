@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { PropTypes } from "prop-types";
 
@@ -31,10 +31,18 @@ const AllCategories = ({
       );
 
       setCategories(categories);
-      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
     };
     fetchCategories();
   }, []);
+
+  /*
+    runs after all DOM mutations. This ensures that the width is set after the carousel is rendered.
+  */
+  useLayoutEffect(() => {
+    if (carousel.current) {
+      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    }
+  }, [categories]);
 
   useFetchRecipes(
     setRecipes,

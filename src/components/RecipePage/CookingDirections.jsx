@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import { womanCooking } from "../../images";
 
 const CookingDirections = ({ recipeInfo }) => {
-  const { strInstructions: directions } = recipeInfo;
   const [instructionsParts, setInstructionsParts] = useState([]);
+  const [selectedLabels, setSelectedLabels] = useState([]);
+
+  const { strInstructions: directions } = recipeInfo;
 
   //divide directions into parts
   useEffect(() => {
@@ -26,39 +28,60 @@ const CookingDirections = ({ recipeInfo }) => {
     splitInstructions();
   }, [directions]);
 
+  const handleCheckboxChange = (index) => {
+    setSelectedLabels((prevLabels) => {
+      if (prevLabels.includes(index)) {
+        return prevLabels.filter((label) => label !== index);
+      } else {
+        return [...prevLabels, index];
+      }
+    });
+  };
+
   return (
-    <section className="padding-x max-w-[840px]">
+    <section className="max-w-[840px] mt-[4rem] md:mt-[5rem]">
       <h2 className="text-3xl font-bold">Directions</h2>
       <ul>
-        {instructionsParts.map((part, index) => (
-          <li
-            key={index}
-            className="mt-6 pb-8 border-b-[1px] border-b-[#0000001A]"
-          >
-            <label
-              className="font-semibold text-lg"
-              htmlFor={`instruction-${index}`}
+        {instructionsParts.map((part, index) => {
+          const isLabelSelected = selectedLabels.includes(index);
+
+          return (
+            <li
+              key={index}
+              className="mt-6 pb-8 border-b-[1px] border-b-[#0000001A]"
             >
-              <input
-                type="checkbox"
-                name={`instruction-${index}`}
-                value={`instruction-${index}`}
-                id={`instruction-${index}`}
-              />{" "}
-              {`Step ${index + 1}`}
-            </label>
+              <div className="circular-checkbox-container">
+                <input
+                  type="checkbox"
+                  name={`instruction-${index}`}
+                  value={`instruction-${index}`}
+                  id={`instruction-${index}`}
+                  onChange={() => handleCheckboxChange(index)}
+                />
+                <label
+                  className={`text-lg ${
+                    isLabelSelected
+                      ? "line-through text-gray-300 font-normal"
+                      : "font-semibold"
+                  }`}
+                  htmlFor={`instruction-${index}`}
+                >
+                  {`Step ${index + 1}`}
+                </label>
+              </div>
 
-            <p className="text-gray-400 mt-4">{part}</p>
+              <p className="text-gray-400 mt-4">{part}</p>
 
-            {index === 0 && (
-              <img
-                className="mt-7"
-                src={womanCooking}
-                alt="a woman smiling and stirring a pot"
-              />
-            )}
-          </li>
-        ))}
+              {index === 0 && (
+                <img
+                  className="mt-7"
+                  src={womanCooking}
+                  alt="a woman smiling and stirring a pot"
+                />
+              )}
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

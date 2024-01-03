@@ -33,7 +33,7 @@ const Navbar = () => {
         <nav>
           <ul className="flex gap-[3rem] font-medium text-[14px] flex-col md:flex-row max-md:justify-center items-center h-full">
             {navLinks.map((navLink) => (
-              <li key={navLink.id}>
+              <li key={navLink.id} onClick={() => setExpanded(false)}>
                 <Link to={navLink.link}>{navLink.name}</Link>
               </li>
             ))}

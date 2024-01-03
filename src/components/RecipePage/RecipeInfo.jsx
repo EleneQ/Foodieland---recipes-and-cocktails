@@ -1,13 +1,24 @@
-import { PiForkKnifeFill } from "react-icons/pi";
-import { FaClock } from "react-icons/fa6";
-import { FiPrinter, FiShare } from "react-icons/fi";
+import { useState, useRef } from "react";
+import { GrInfo } from "react-icons/gr";
 import PropTypes from "prop-types";
 
+import { playButton } from "../../images";
 import { PosterProfile } from "../";
-import { NutritionInfoCard } from "./";
+import {
+  NutritionInfoCard,
+  RecipeInfoDetails,
+  SharePrintButtonGroup,
+} from "./";
+import useOutsideClickHandler from "../../hooks/useOutsideClickHandler";
 
 const RecipeInfo = ({ recipeInfo, ingredients, measurements }) => {
-  const randPrepTime = Math.floor(Math.random() * (25 - 5 + 1)) + 5;
+  const [additionalInfoExpanded, setAdditionalInfoExpanded] = useState(false);
+  const additionalInfo = useRef();
+
+  //collapse when clicking somewhere else
+  useOutsideClickHandler(additionalInfo, () =>
+    setAdditionalInfoExpanded(false)
+  );
 
   const {
     strMeal: recipeName,
@@ -17,72 +28,78 @@ const RecipeInfo = ({ recipeInfo, ingredients, measurements }) => {
   } = recipeInfo;
 
   return (
-    <section className="padding-x max-width mt-[4rem]">
+    <section className="padding-x max-width mt-[3rem] md:mt-[4rem] mb-[2.5rem]">
       <div className="flex items-center justify-between">
-        {/* Recipe Details */}
         <div className="flex-1">
           <h1 className="text-3xl md:text-4xl font-bold">{recipeName}</h1>
-          <div className="recipe-info-details | flex items-center my-[2rem]">
+          <div className="recipe-info-details | flex items-center max-md:justify-between my-5 md:my-[2rem]">
             <PosterProfile />
-            <div className="flex items-center font-medium gap-3 text-[14px]">
-              <FaClock className="text-base" />
-              <p className="uppercase flex flex-col">
-                Prep time
-                <span className="text-gray-400">{`${randPrepTime} Minutes`}</span>
-              </p>
+            <div className="md:hidden relative" ref={additionalInfo}>
+              <button
+                className="rounded-full shadow-lg shadow-slate-300 p-4 bg-primary-blue-300"
+                onClick={() => setAdditionalInfoExpanded((prev) => !prev)}
+              >
+                <GrInfo />
+              </button>
+              <div
+                className={`absolute bg-primary-blue-300 p-6 rounded-3xl right-0 top-[3.5rem] z-40 shadow-lg shadow-slate-400 ${
+                  additionalInfoExpanded ? "max-md:block" : "hidden"
+                }`}
+              >
+                <RecipeInfoDetails className={"mb-5"} category={category} />
+                <NutritionInfoCard
+                  ingredients={ingredients}
+                  measurements={measurements}
+                />
+              </div>
             </div>
-            <p className="flex items-center text-gray-400 font-medium gap-2 text-[14px]">
-              <PiForkKnifeFill className="text-black text-xl" />
-              {category}
-            </p>
+
+            <RecipeInfoDetails
+              className={"recipe-info-details | hidden md:flex items-center"}
+              category={category}
+            />
           </div>
         </div>
-        {/* Print and Share */}
-        <div className="text-right">
-          <div className="text-center w-[80px] cursor-pointer inline-block mr-5">
-            <span className="bg-primary-blue-300 rounded-full text-lg aspect-square flex-center">
-              <FiPrinter />
-            </span>
-            <p className="uppercase text-[12px] font-medium mt-3">Print</p>
-          </div>
-          <div className="text-center w-[80px] cursor-pointer inline-block">
-            <span className="bg-primary-blue-300 rounded-full text-lg aspect-square flex-center">
-              <FiShare />
-            </span>
-            <p className="uppercase text-[12px] font-medium mt-3">Share</p>
-          </div>
-        </div>
+        <SharePrintButtonGroup className={"hidden md:block text-right"} />
       </div>
 
-      <div>
-        <div className="flex gap-5 justify-between overflow-hidden items-stretch">
+      <div className="flex gap-3 lg:gap-5 justify-between overflow-hidden items-stretch">
+        <div className="relative">
+          <img
+            className="rounded-2xl md:h-[600px] aspect-[1/0.7] flex-1"
+            src={recipeImg}
+            alt={recipeName}
+          />
           <a
-            className="flex-1"
+            className="absolute top-[50%] -translate-x-[50%] left-[50%] -translate-y-[50%]"
             href={recipeYoutubeLink}
             target="_blank"
             rel="noreferrer"
           >
             <img
-              className="rounded-2xl h-[600px] aspect-[1/0.7]"
-              src={recipeImg}
-              alt={recipeName}
+              className="w-[70px] aspect-square md:w-[120px]"
+              src={playButton}
+              alt="play button"
             />
           </a>
-          <NutritionInfoCard
-            ingredients={ingredients}
-            measurements={measurements}
-          />
         </div>
-        <p className="text-gray-400 text-[15px] my-[2.5rem]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <NutritionInfoCard
+          className={"hidden md:block"}
+          ingredients={ingredients}
+          measurements={measurements}
+        />
       </div>
+
+      <p className="text-gray-400 text-[15px] mt-5 md:mt-[2.5rem]">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+      <SharePrintButtonGroup className={"md:hidden mt-4"} />
     </section>
   );
 };

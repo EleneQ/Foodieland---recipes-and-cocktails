@@ -3,3 +3,5 @@ export { default as IngredientsList } from "./IngredientsList";
 export { default as OtherRecipes } from "./OtherRecipes";
 export { default as CookingDirections } from "./CookingDirections";
 export { default as NutritionInfoCard } from "./NutritionInfoCard";
+export { default as RecipeInfoDetails } from "./RecipeInfoDetails";
+export { default as SharePrintButtonGroup } from "./SharePrintButtonGroup";

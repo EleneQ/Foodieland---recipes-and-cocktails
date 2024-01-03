@@ -34,6 +34,9 @@ import healthy from "./EatHealthCard/healthy.png";
 /* COOKING DIRECTIONS */
 import womanCooking from "./CookingDirections/womanCooking.png";
 
+/* RECIPE INFO */
+import playButton from "./RecipeInfo/playButton.svg";
+
 export {
   cabbage,
   onion,
@@ -54,4 +57,5 @@ export {
   sticker,
   healthy,
   womanCooking,
+  playButton,
 };
