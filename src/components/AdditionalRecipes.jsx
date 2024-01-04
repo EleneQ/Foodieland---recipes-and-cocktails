@@ -9,7 +9,8 @@ const AdditionalRecipes = ({ letterToSearchBy, maxRecipeAmount }) => {
 
   useFetchRecipes(
     setRecipes,
-    `https://www.themealdb.com/api/json/v1/1/search.php?f=${letterToSearchBy}`
+    `https://www.themealdb.com/api/json/v1/1/search.php?f=${letterToSearchBy}`,
+    [letterToSearchBy, maxRecipeAmount]
   );
 
   if (!recipes.length) return "Loading...";

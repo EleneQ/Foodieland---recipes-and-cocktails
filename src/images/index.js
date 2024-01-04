@@ -8,6 +8,8 @@ import tomato from "./Shared/Foods/tomato.png";
 
 import profile from "./Shared/profile.png";
 
+import womanCooking from "./Shared/womanCooking.png";
+
 /* CHEF CTA */
 import chef from "./ChefCTA/chef.png";
 
@@ -31,14 +33,14 @@ import vegetables from "./SubscribtionBanner/vegetables.png";
 /* EAT HEALTHY CARD */
 import healthy from "./EatHealthCard/healthy.png";
 
-/* COOKING DIRECTIONS */
-import womanCooking from "./CookingDirections/womanCooking.png";
-
 /* RECIPE INFO */
 import playButton from "./RecipeInfo/playButton.svg";
 
 /* CONTACT US */
 import chefSmiling from "./ContactUs/chefSmiling.png";
+
+/* ABOUT US */
+import ourChefCooking from "./AboutUs/ourChefCooking.png";
 
 export {
   cabbage,
@@ -62,4 +64,5 @@ export {
   womanCooking,
   playButton,
   chefSmiling,
+  ourChefCooking,
 };

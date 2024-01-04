@@ -9,7 +9,7 @@ const OtherRecipes = ({ sectionTitle, randomize = false }) => {
 
   useEffect(() => {
     const letterToSearchBy = randomize ? getRandLetter() : "d";
-    console.log(letterToSearchBy);
+    
     const fetchRecipes = async () => {
       const data = await fetchDataFromApi(
         `https://www.themealdb.com/api/json/v1/1/search.php?f=${letterToSearchBy}`

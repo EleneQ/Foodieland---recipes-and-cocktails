@@ -1,7 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Navbar, Footer } from "./components";
-import { HomePage, RecipePage, ContactUsPage, CocktailsPage } from "./pages";
+import {
+  HomePage,
+  RecipePage,
+  ContactUsPage,
+  CocktailsPage,
+  AboutUsPage,
+} from "./pages";
 
 const App = () => {
   return (
@@ -12,6 +18,7 @@ const App = () => {
         <Route path="/recipe/:id" element={<RecipePage />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/cocktails" element={<CocktailsPage />} />
+        <Route path="/about" element={<AboutUsPage />} />
       </Routes>
       <Footer />
     </Router>
