@@ -31,7 +31,7 @@ const OtherRecipes = () => {
           } = recipe;
 
           return (
-            <Link to={`/${idMeal}`} key={idMeal}>
+            <Link to={`/recipe/${idMeal}`} key={idMeal}>
               <li
                 className="flex gap-3 mb-5 items-center"
                 onClick={() => scrollTo({ top: 230, behavior: "smooth" })}
