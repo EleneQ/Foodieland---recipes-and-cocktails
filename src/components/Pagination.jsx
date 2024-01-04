@@ -1,4 +1,5 @@
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
 const Pagination = ({
   className,
@@ -14,14 +15,6 @@ const Pagination = ({
     pageNumbers.push(i);
   }
 
-  const paginationHandler = (pageNum) => {
-    paginate(pageNum);
-    scrollTo({
-      top: 900,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <nav className={classes}>
       <ul className="flex gap-2 items-center justify-center">
@@ -29,9 +22,11 @@ const Pagination = ({
           <li
             key={pageNum}
             className={`cursor-pointer px-3 py-1 rounded-lg font-semibold ${
-              currentPage === pageNum ? "text-white bg-black" : ""
+              currentPage === pageNum
+                ? "text-white bg-black"
+                : "border-[1px] border-[#0000001A]"
             }`}
-            onClick={() => paginationHandler(pageNum)}
+            onClick={() => paginate(pageNum)}
           >
             {pageNum}
           </li>
@@ -39,6 +34,14 @@ const Pagination = ({
       </ul>
     </nav>
   );
+};
+
+Pagination.propTypes = {
+  className: PropTypes.string,
+  recipesPerPage: PropTypes.number.isRequired,
+  allRecipes: PropTypes.array.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  paginate: PropTypes.func.isRequired,
 };
 
 export default Pagination;

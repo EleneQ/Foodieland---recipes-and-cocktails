@@ -9,15 +9,15 @@ export const navLinks = [
     name: "Home",
     link: "/",
   },
-  {
-    id: "r454rwer",
-    name: "Recipes",
-    link: "/recipes",
-  },
+  // {
+  //   id: "r454rwer",
+  //   name: "Recipes",
+  //   link: "/recipes",
+  // },
   {
     id: "322w1",
-    name: "Blog",
-    link: "/blog",
+    name: "Cocktails",
+    link: "/cocktails",
   },
   {
     id: "34233r",

@@ -42,7 +42,7 @@ const IngredientsList = ({ ingredients, measurements }) => {
                   name={ingredient}
                   value={`${ingredient} ${measurements[index]}`}
                   onChange={() => handleCheckboxChange(index)}
-                  checked={isLabelSelected || false}
+                  checked={selectedLabels.includes(index) || false}
                 />
                 <label htmlFor={`checkbox_${index}`}>
                   {`${ingredient} - ${measurements[index]}`}

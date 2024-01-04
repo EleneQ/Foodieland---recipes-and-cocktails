@@ -8,56 +8,19 @@ const RecipesShowcase = ({ selectedCategory, recipes, setRecipes }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(9);
 
-  //set initial recipes
-  // useEffect(() => {
-  //   const fetchRecipes = async () => {
-  //     let url = "";
-  //     if (!selectedCategory || selectedCategory === "all") {
-  //       url = "https://www.themealdb.com/api/json/v1/1/search.php?f=b";
-  //     } else {
-  //       url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`;
-  //     }
-
-  //     try {
-  //       const res = await fetch(url);
-  //       if (!res.ok) {
-  //         throw new Error(`HTTP error! Status: ${res.status}`);
-  //       }
-  //       const data = await res.json();
-  //       setRecipes(data.meals || []);
-  //     } catch (error) {
-  //       console.error("Error fetching recipes:", error.message);
-  //     }
-  //   };
-  //   fetchRecipes();
-  // }, [selectedCategory]);
-
-  //search based on searchterm
-  // useEffect(() => {
-  //   if (!selectedCategory || selectedCategory === "all") {
-  //     const searhRecipes = async () => {
-  //       const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm.toUpperCase()}`;
-  //       const res = await fetch(url);
-  //       const data = await res.json();
-
-  //       setRecipes(data.meals || []);
-  //     };
-  //     searhRecipes();
-  //   } else {
-  //     setRecipes((prevRecipes) =>
-  //       prevRecipes.filter((recipe) => recipe.strMeal === searchTerm)
-  //     );
-  //   }
-  // }, [searchTerm]);
-
-  // if (!recipes.length) return "Loading...";
-
   //pagination
   const indexOfLastPost = currentPage * recipesPerPage;
   const indexOfFirstPost = indexOfLastPost - recipesPerPage;
-  const currentPosts = recipes.slice(indexOfFirstPost, indexOfLastPost);
+  const currentRecipes = recipes.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = (pageNum) => setCurrentPage(pageNum);
+  const paginate = (pageNum) => {
+    setCurrentPage(pageNum);
+
+    scrollTo({
+      top: 900,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section className="padding-x max-width mt-[3.5rem] md:mt-[7rem]">
@@ -76,7 +39,7 @@ const RecipesShowcase = ({ selectedCategory, recipes, setRecipes }) => {
       {/* recipes showcase */}
       <div>
         <ul className="recipe-grid">
-          {currentPosts.map((recipe) => (
+          {currentRecipes.map((recipe) => (
             <RecipeCard
               className={"px-3 pb-3 bg-primary-blue-gradient"}
               key={recipe.idMeal}

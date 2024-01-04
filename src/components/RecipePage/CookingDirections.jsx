@@ -57,6 +57,7 @@ const CookingDirections = ({ recipeInfo }) => {
                   value={`instruction-${index}`}
                   id={`instruction-${index}`}
                   onChange={() => handleCheckboxChange(index)}
+                  checked={selectedLabels.includes(index) || false}
                 />
                 <label
                   className={`text-lg ${

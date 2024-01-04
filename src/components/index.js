@@ -8,3 +8,4 @@ export { default as EatHealthyCard } from "./EatHealthyCard";
 export { default as SubscribtionBanner } from "./SubscribtionBanner";
 export { default as AdditionalRecipes } from "./AdditionalRecipes";
 export { default as Dropdown } from "./Dropdown";
+export { default as OtherRecipes } from "./OtherRecipes";

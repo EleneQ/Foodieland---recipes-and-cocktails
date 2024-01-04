@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import {
   RecipeInfo,
   IngredientsList,
-  OtherRecipes,
   CookingDirections,
 } from "../components/RecipePage";
 import {
   EatHealthyCard,
   SubscribtionBanner,
   AdditionalRecipes,
+  OtherRecipes,
 } from "../components";
 import { fetchDataFromApi } from "../utils/fetchDataFromApi";
 
@@ -72,7 +72,7 @@ const RecipePage = () => {
           <CookingDirections recipeInfo={recipeInfo} />
         </div>
         <div>
-          <OtherRecipes />
+          <OtherRecipes sectionTitle="Other Recipes" />
           <EatHealthyCard />
         </div>
       </div>
