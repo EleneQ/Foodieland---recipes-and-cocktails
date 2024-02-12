@@ -1,32 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import { fetchDataFromApi } from "../utils/fetchDataFromApi";
+import { Loading } from "./";
+import useFetchEffect from "../hooks/useFetchEffect";
 
 const OtherRecipes = ({ sectionTitle, randomize = false }) => {
   const [recipes, setRecipes] = useState([]);
 
-  useEffect(() => {
-    const letterToSearchBy = randomize ? getRandLetter() : "d";
-    
-    const fetchRecipes = async () => {
-      const data = await fetchDataFromApi(
-        `https://www.themealdb.com/api/json/v1/1/search.php?f=${letterToSearchBy}`
-      );
-      setRecipes(data.meals || []);
-    };
-    fetchRecipes();
-  }, []);
+  //fetch recipes
+  useFetchEffect(
+    `https://www.themealdb.com/api/json/v1/1/search.php?f=${
+      randomize ? getRandLetter() : "d"
+    }`,
+    setRecipes,
+    (data) => data.meals || []
+  );
 
-  const getRandLetter = () => {
+  function getRandLetter() {
     const alphabet = "fgsjklmnprstvw";
     const randIndex = Math.floor(Math.random() * alphabet.length);
 
     return alphabet[randIndex];
-  };
+  }
 
-  if (!recipes.length) return "Loading...";
+  if (!recipes.length) return <Loading />;
 
   return (
     <section className="mt-[2rem] md:mt-[1.5rem]">

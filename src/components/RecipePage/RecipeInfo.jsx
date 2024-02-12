@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { GrInfo } from "react-icons/gr";
 import PropTypes from "prop-types";
 
@@ -12,13 +12,9 @@ import {
 import useOutsideClickHandler from "../../hooks/useOutsideClickHandler";
 
 const RecipeInfo = ({ recipeInfo, ingredients, measurements }) => {
-  const [additionalInfoExpanded, setAdditionalInfoExpanded] = useState(false);
   const additionalInfo = useRef();
-
-  //collapse when clicking somewhere else
-  useOutsideClickHandler(additionalInfo, () =>
-    setAdditionalInfoExpanded(false)
-  );
+  const [infoExpanded, setInfoExpanded] =
+    useOutsideClickHandler(additionalInfo);
 
   const {
     strMeal: recipeName,
@@ -37,13 +33,13 @@ const RecipeInfo = ({ recipeInfo, ingredients, measurements }) => {
             <div className="md:hidden relative" ref={additionalInfo}>
               <button
                 className="rounded-full shadow-lg shadow-slate-300 p-4 bg-primary-blue-300"
-                onClick={() => setAdditionalInfoExpanded((prev) => !prev)}
+                onClick={() => setInfoExpanded((prev) => !prev)}
               >
                 <GrInfo />
               </button>
               <div
                 className={`absolute bg-primary-blue-300 p-6 rounded-3xl right-0 top-[3.5rem] z-40 shadow-lg shadow-slate-400 ${
-                  additionalInfoExpanded ? "max-md:block" : "hidden"
+                  infoExpanded ? "max-md:block" : "hidden"
                 }`}
               >
                 <RecipeInfoDetails className={"mb-5"} category={category} />

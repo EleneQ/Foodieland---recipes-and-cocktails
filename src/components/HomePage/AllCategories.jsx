@@ -1,9 +1,9 @@
-import { useState, useEffect, useLayoutEffect, useRef } from "react";
+import { useState, useLayoutEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { PropTypes } from "prop-types";
 
-import { fetchDataFromApi } from "../../utils/fetchDataFromApi";
-import useFetchRecipes from "../../hooks/useFetchRecipes";
+import useFetchEffect from "../../hooks/useFetchEffect";
+import { Loading } from "../";
 
 const gradientsArray = [
   "linear-gradient(180deg, rgba(112, 130, 70, 0.00) 0%, rgba(112, 130, 70, 0.1) 100%)",
@@ -23,36 +23,34 @@ const AllCategories = ({
   const [width, setWidth] = useState(0);
   const carousel = useRef();
 
-  //fetch all categories
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const { categories } = await fetchDataFromApi(
-        "https://www.themealdb.com/api/json/v1/1/categories.php"
-      );
+  const fetchAllCategories = useFetchEffect(
+    "https://www.themealdb.com/api/json/v1/1/categories.php",
+    setCategories,
+    (data) => data.categories || []
+  );
 
-      setCategories(categories);
-    };
-    fetchCategories();
-  }, []);
-
-  /*
-    runs after all DOM mutations. This ensures that the width is set after the carousel is rendered.
-  */
+  //carousel width
   useLayoutEffect(() => {
     if (carousel.current) {
       setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
     }
   }, [categories]);
 
-  useFetchRecipes(
-    setRecipes,
+  //fetch recipes
+  useFetchEffect(
     !selectedCategory || selectedCategory === "all"
       ? "https://www.themealdb.com/api/json/v1/1/search.php?f=c"
       : `https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`,
-    selectedCategory
+    setRecipes,
+    (data) => data.meals || [],
+    {},
+    [selectedCategory]
   );
 
-  if (!categories.length) return "Loading...";
+  if (!categories.length) {
+    fetchAllCategories();
+    return <Loading />;
+  }
 
   const categorySelectionHandler = (categoryName) => {
     if (selectedCategory.toLowerCase() === categoryName.toLowerCase()) {

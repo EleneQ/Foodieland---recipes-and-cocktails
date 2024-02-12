@@ -12,7 +12,7 @@ import {
   AdditionalRecipes,
   OtherRecipes,
 } from "../components";
-import { fetchDataFromApi } from "../utils/fetchDataFromApi";
+import { Loading } from "../components";
 
 const RecipePage = () => {
   const [recipeInfo, setRecipeInfo] = useState({});
@@ -22,21 +22,22 @@ const RecipePage = () => {
   const ingredients = [];
   const measurements = [];
 
+  //TODO: implements some type of hook!!!!!!!
   useEffect(() => {
     const fetchRecipeData = async () => {
       try {
-        const data = await fetchDataFromApi(
+        const res = await fetch(
           `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
         );
+        const { meals } = await res.json();
 
-        setRecipeInfo(data.meals ? data.meals[0] : {});
+        setRecipeInfo(meals ? meals[0] : {});
         setLoading(false);
       } catch (error) {
         console.error("Error fetching recipe data:", error);
         setLoading(false);
       }
     };
-
     fetchRecipeData();
   }, [id]);
 
@@ -53,7 +54,7 @@ const RecipePage = () => {
   };
   extractIngredientsMeasurements();
 
-  if (loading) return "Loading...";
+  if (loading) return <Loading />;
 
   return (
     <main>

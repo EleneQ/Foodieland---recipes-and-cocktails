@@ -1,18 +1,15 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 import PropTypes from "prop-types";
 
 import useOutsideClickHandler from "../hooks/useOutsideClickHandler";
 
 function Dropdown({ options, labelValue, onChange }) {
-  const [isOpen, setIsOpen] = useState(false);
   const divEl = useRef();
-
-  useOutsideClickHandler(divEl, () => setIsOpen(false));
+  const [isOpen, setIsOpen] = useOutsideClickHandler(divEl);
 
   const handleOptionClick = (option) => {
     setIsOpen(false);
-
     onChange(option);
   };
 

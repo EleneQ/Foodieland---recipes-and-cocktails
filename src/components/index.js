@@ -9,3 +9,4 @@ export { default as SubscribtionBanner } from "./SubscribtionBanner";
 export { default as AdditionalRecipes } from "./AdditionalRecipes";
 export { default as Dropdown } from "./Dropdown";
 export { default as OtherRecipes } from "./OtherRecipes";
+export { default as Loading } from "./Loading";

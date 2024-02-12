@@ -1,14 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import { Pagination } from "../";
+import { Pagination, Loading } from "../";
+import formatDate from "../../utils/formatDate";
+import useFetchEffect from "../../hooks/useFetchEffect";
 
 const CocktailsShowcase = ({ cocktails, setCocktails }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(6);
 
-  //pagination
+  // Pagination
   const indexOfLastPost = currentPage * recipesPerPage;
   const indexOfFirstPost = indexOfLastPost - recipesPerPage;
   const currentCocktails = cocktails.slice(indexOfFirstPost, indexOfLastPost);
@@ -22,33 +24,16 @@ const CocktailsShowcase = ({ cocktails, setCocktails }) => {
     });
   };
 
-  useEffect(() => {
-    const fetchCocktails = async () => {
-      try {
-        const url =
-          "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=c";
+  const fetchCocktails = useFetchEffect(
+    "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=c",
+    setCocktails,
+    (data) => data.drinks || []
+  );
 
-        const res = await fetch(url);
-        const data = await res.json();
-
-        setCocktails(data.drinks || []);
-      } catch (error) {
-        console.log("An error occurred", error);
-        throw error;
-      }
-    };
+  if (!cocktails.length) {
     fetchCocktails();
-  }, []);
-
-  //convert date to the "DD/MM/YYYY" format
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const options = { day: "2-digit", month: "2-digit", year: "numeric" };
-
-    return date.toLocaleDateString(undefined, options);
-  };
-
-  if (!cocktails.length) return "Loading...";
+    return <Loading />;
+  }
 
   return (
     <section className="flex-1">

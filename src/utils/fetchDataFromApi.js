@@ -1,4 +1,4 @@
-export const fetchDataFromApi = async (url) => {
+const fetchDataFromApi = async (url) => {
   try {
     const res = await fetch(url);
     if (!res.ok) {
@@ -8,6 +8,8 @@ export const fetchDataFromApi = async (url) => {
     return data;
   } catch (error) {
     console.error("Error fetching recipes:", error.message);
-    return null;
+    throw error;
   }
 };
+
+export default fetchDataFromApi;

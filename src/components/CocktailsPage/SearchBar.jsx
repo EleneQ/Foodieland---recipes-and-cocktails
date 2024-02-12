@@ -2,6 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 import { Button } from "../";
+import fetchDataFromApi from "../../utils/fetchDataFromApi";
 
 const SearchBar = ({ setCocktails }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,17 +16,10 @@ const SearchBar = ({ setCocktails }) => {
 
   const fetchCocktailsByName = async () => {
     if (searchTerm) {
-      try {
-        const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`;
-
-        const res = await fetch(url);
-        const data = await res.json();
-
-        setCocktails(data.drinks || []);
-      } catch (error) {
-        console.log("An error occurred", error);
-        throw error;
-      }
+      const { drinks } = await fetchDataFromApi(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`
+      );
+      setCocktails(drinks || []);
     }
   };
 

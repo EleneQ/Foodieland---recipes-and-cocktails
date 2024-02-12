@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { fetchDataFromApi } from "../../utils/fetchDataFromApi";
 import { PropTypes } from "prop-types";
+
+import fetchDataFromApi from "../../utils/fetchDataFromApi";
 
 const SearchBar = ({ selectedCategory, setRecipes }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -11,10 +12,10 @@ const SearchBar = ({ selectedCategory, setRecipes }) => {
     if (searchTerm) {
       if (!selectedCategory || selectedCategory === "all") {
         const searhAllRecipesByName = async () => {
-          const data = await fetchDataFromApi(
+          const { meals } = await fetchDataFromApi(
             `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm.toUpperCase()}`
           );
-          setRecipes(data.meals || []);
+          setRecipes(meals || []);
         };
         searhAllRecipesByName();
       } else {
@@ -37,7 +38,7 @@ const SearchBar = ({ selectedCategory, setRecipes }) => {
 
   return (
     <form
-      className="max-md:ml-[15%] mt-5 md:mt-[4rem] mb-7 flex items-center justify-center md:justify-end"
+      className="ml-[15%] sm:ml-[5%] md:ml-0 mt-5 md:mt-[4rem] mb-7 flex items-center justify-center md:justify-end"
       onSubmit={(e) => submitHandler(e)}
       action="#"
     >

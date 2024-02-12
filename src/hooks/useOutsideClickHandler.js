@@ -1,18 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function useOutsideClickHandler(ref, callback) {
+function useOutsideClickHandler(ref) {
+  const [expanded, setExpanded] = useState(false);
+
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        callback();
+    const handleClickOutside = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setExpanded(false);
       }
     };
+
     document.addEventListener("click", handleClickOutside, true);
 
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [ref, callback]);
+  }, [ref]);
+
+  return [expanded, setExpanded];
 }
 
 export default useOutsideClickHandler;
