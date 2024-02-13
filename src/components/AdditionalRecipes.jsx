@@ -1,30 +1,33 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
-
 import { Loading } from "./";
-import { RecipeCard } from "./HomePage";
-import useFetchEffect from "../hooks/useFetchEffect";
+import RecipeCard from "./HomePage/RecipeCard";
+import useFetch from "../hooks/useFetch";
+import { RECIPES_BY_LETTER } from "../constans/endpoints";
 
 const AdditionalRecipes = ({ letterToSearchBy, maxRecipeAmount }) => {
-  const [recipes, setRecipes] = useState([]);
-
-  //fetch recipes by letter
-  useFetchEffect(
-    `https://www.themealdb.com/api/json/v1/1/search.php?f=${letterToSearchBy}`,
-    setRecipes,
-    (data) => data.meals || [],
-    {},
-    [letterToSearchBy, maxRecipeAmount]
-  );
-
-  if (!recipes.length) return <Loading />;
+  const {
+    loading,
+    error,
+    value: { meals } = [],
+  } = useFetch(`${RECIPES_BY_LETTER}${letterToSearchBy}`, {}, [
+    letterToSearchBy,
+    maxRecipeAmount,
+  ]);
 
   return (
-    <ul className="additional-recipes-grid">
-      {recipes.slice(0, maxRecipeAmount).map((recipe) => (
-        <RecipeCard key={recipe.idMeal} recipe={recipe} />
-      ))}
-    </ul>
+    <>
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <p>{error.message}</p>
+      ) : (
+        <ul className="additional-recipes-grid">
+          {meals.slice(0, maxRecipeAmount).map((recipe) => (
+            <RecipeCard key={recipe.idMeal} recipe={recipe} />
+          ))}
+        </ul>
+      )}
+    </>
   );
 };
 

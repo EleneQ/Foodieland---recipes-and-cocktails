@@ -1,22 +1,18 @@
-import classnames from "classnames";
-import PropTypes from "prop-types";
-
 const Pagination = ({
   className,
-  recipesPerPage,
-  allRecipes,
+  itemsPerPage,
+  items,
   currentPage,
   paginate,
 }) => {
-  const classes = classnames(className);
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(allRecipes.length / recipesPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(items?.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
-    <nav className={classes}>
+    <nav className={className}>
       <ul className="flex gap-2 items-center justify-center">
         {pageNumbers.map((pageNum) => (
           <li
@@ -34,14 +30,6 @@ const Pagination = ({
       </ul>
     </nav>
   );
-};
-
-Pagination.propTypes = {
-  className: PropTypes.string,
-  recipesPerPage: PropTypes.number.isRequired,
-  allRecipes: PropTypes.array.isRequired,
-  currentPage: PropTypes.number.isRequired,
-  paginate: PropTypes.func.isRequired,
 };
 
 export default Pagination;

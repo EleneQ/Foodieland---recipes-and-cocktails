@@ -7,11 +7,8 @@ const useFetchEffect = (
   options = {},
   dependencies = []
 ) => {
-  // const [loading, setLoading] = useState(true);
-
   const fetchDataMemorized = useCallback(async () => {
     try {
-      // setLoading(true);
       const response = await fetch(url, options);
       const data = await response.json();
 
@@ -20,6 +17,8 @@ const useFetchEffect = (
       console.error("An error occurred during fetch:", error);
       throw error;
     }
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...dependencies]);
 
   useEffect(() => {

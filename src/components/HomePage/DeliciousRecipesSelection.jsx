@@ -12,6 +12,7 @@ const DeliciousRecipesSelection = () => {
           tempor incididunt ut labore et dolore magna aliqut enim ad minim
         </p>
       </div>
+      
       <AdditionalRecipes letterToSearchBy="k" maxRecipeAmount={8} />
     </section>
   );

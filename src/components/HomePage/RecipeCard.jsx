@@ -2,15 +2,9 @@ import { PiForkKnifeFill } from "react-icons/pi";
 import { FaClock } from "react-icons/fa";
 import { MdAreaChart } from "react-icons/md";
 import { PropTypes } from "prop-types";
-import classnames from "classnames";
 import { Link } from "react-router-dom";
 
 const RecipeCard = ({ recipe, selectedCategory, className }) => {
-  const classes = classnames(
-    "rounded-3xl cursor-pointer max-md:max-w-[25rem] max-md:mx-auto ",
-    className
-  );
-
   const randomMinutes = Math.floor(Math.random() * (50 - 25 + 1)) + 25;
 
   const {
@@ -24,7 +18,7 @@ const RecipeCard = ({ recipe, selectedCategory, className }) => {
   return (
     <Link to={`/recipe/${idMeal}`}>
       <li
-        className={classes}
+        className={`rounded-3xl cursor-pointer max-md:max-w-[25rem] max-md:mx-auto ${className}`}
         onClick={() => scrollTo({ top: 230, behavior: "smooth" })}
       >
         <img

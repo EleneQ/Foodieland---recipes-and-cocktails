@@ -1,12 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-import {
-  RecipeInfo,
-  IngredientsList,
-  CookingDirections,
-} from "../components/RecipePage";
+import RecipeInfo from "../components/RecipePage/RecipeInfo";
+import IngredientsList from "../components/RecipePage/IngredientsList";
+import CookingDirections from "../components/RecipePage/CookingDirections";
 import {
   EatHealthyCard,
   SubscribtionBanner,

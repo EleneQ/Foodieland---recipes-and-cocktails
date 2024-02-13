@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { PropTypes } from "prop-types";
-
 import { Pagination } from "../";
-import { SearchBar, RecipeCard } from "./";
+import SearchBar from "./SearchBar";
+import RecipeCard from "./RecipeCard";
+import { useRecipes } from "../../context/RecipeContext";
 
-const RecipesShowcase = ({ selectedCategory, recipes, setRecipes }) => {
+const RecipesShowcase = ({ selectedCategory }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(9);
+
+  const { recipes } = useRecipes();
 
   //pagination
   const indexOfLastPost = currentPage * recipesPerPage;
@@ -34,7 +37,7 @@ const RecipesShowcase = ({ selectedCategory, recipes, setRecipes }) => {
         </p>
       </div>
 
-      <SearchBar selectedCategory={selectedCategory} setRecipes={setRecipes} />
+      <SearchBar selectedCategory={selectedCategory} />
 
       {/* recipes showcase */}
       <div>
@@ -48,10 +51,11 @@ const RecipesShowcase = ({ selectedCategory, recipes, setRecipes }) => {
             />
           ))}
         </ul>
+
         <Pagination
           className={"mt-6"}
-          recipesPerPage={recipesPerPage}
-          allRecipes={recipes}
+          itemsPerPage={recipesPerPage}
+          items={recipes}
           currentPage={currentPage}
           paginate={paginate}
         />

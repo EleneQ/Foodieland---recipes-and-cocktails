@@ -1,18 +1,14 @@
 import { useState } from "react";
-
-import {
-  Hero,
-  AllCategories,
-  RecipesShowcase,
-  ChefCTA,
-  InstagramCTA,
-  DeliciousRecipesSelection,
-} from "../components/HomePage";
+import Hero from "../components/HomePage/Hero";
+import AllCategories from "../components/HomePage/AllCategories";
+import RecipesShowcase from "../components/HomePage/RecipesShowcase";
+import ChefCTA from "../components/HomePage/ChefCTA";
+import InstagramCTA from "../components/HomePage/InstagramCTA";
+import DeliciousRecipesSelection from "../components/HomePage/DeliciousRecipesSelection";
 import { SubscribtionBanner } from "../components";
 
 const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [recipes, setRecipes] = useState([]);
 
   return (
     <main>
@@ -20,13 +16,8 @@ const HomePage = () => {
       <AllCategories
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
-        setRecipes={setRecipes}
       />
-      <RecipesShowcase
-        selectedCategory={selectedCategory}
-        recipes={recipes}
-        setRecipes={setRecipes}
-      />
+      <RecipesShowcase selectedCategory={selectedCategory} />
       <ChefCTA />
       <InstagramCTA />
       <DeliciousRecipesSelection />

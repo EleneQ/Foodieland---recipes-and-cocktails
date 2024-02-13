@@ -1,38 +1,39 @@
 import { useState } from "react";
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
+import axios from "axios";
+import { RECIPE_BASE_URL } from "../../constans/endpoints";
+import { useRecipes } from "../../context/RecipeContext";
 
-import fetchDataFromApi from "../../utils/fetchDataFromApi";
-
-const SearchBar = ({ selectedCategory, setRecipes }) => {
+const SearchBar = ({ selectedCategory }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const submitHandler = (e) => {
+  const { recipes, setRecipes } = useRecipes();
+
+  const searchAllRecipesByName = async () => {
+    try {
+      const {
+        data: { meals },
+      } = await axios.get(
+        `${RECIPE_BASE_URL}/search.php?s=${searchTerm.toUpperCase()}`
+      );
+      setRecipes(meals || []);
+    } catch (err) {
+      console.error("Error fetching recipes:", err.message);
+    }
+  };
+
+  const submitHandler = async (e) => {
     e.preventDefault();
 
-    if (searchTerm) {
-      if (!selectedCategory || selectedCategory === "all") {
-        const searhAllRecipesByName = async () => {
-          const { meals } = await fetchDataFromApi(
-            `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm.toUpperCase()}`
-          );
-          setRecipes(meals || []);
-        };
-        searhAllRecipesByName();
-      } else {
-        const searchRecipesInCategory = async () => {
-          const { meals } = await fetchDataFromApi(
-            `https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`
-          );
-          setRecipes(
-            meals.filter((recipe) =>
-              recipe.strMeal.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-          );
-        };
-        searchRecipesInCategory();
-      }
+    if (!selectedCategory || selectedCategory === "all") {
+      await searchAllRecipesByName();
+    } else {
+      setRecipes(
+        recipes.filter((recipe) =>
+          recipe.strMeal.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
     }
-
     setSearchTerm("");
   };
 
@@ -59,6 +60,7 @@ const SearchBar = ({ selectedCategory, setRecipes }) => {
 SearchBar.propTypes = {
   selectedCategory: PropTypes.string.isRequired,
   setRecipes: PropTypes.func.isRequired,
+  recipes: PropTypes.array.isRequired,
 };
 
 export default SearchBar;

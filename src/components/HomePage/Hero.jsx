@@ -16,7 +16,7 @@ const Hero = () => {
         <div className="px-[1.5rem] sm:px-[5rem] sm:py-[4rem] md:px-[3rem] pt-[2.5rem] pb-[3rem]">
           <div className="flex gap-3 items-center px-3 md:px-4 py-[6px] md:py-2 bg-white font-semibold text-[13px] md:text-[14px] max-w-[10rem] rounded-3xl shadow-lg">
             <img src={scroll} alt="scroll" />
-            <p>Hot Recipes</p>
+            <p>Hot Recipe</p>
           </div>
 
           {/* text */}
@@ -71,7 +71,7 @@ const Hero = () => {
             className="object-cover w-full h-full"
             style={{ borderRadius: "inherit" }}
             src={chicken}
-            alt="chicken"
+            alt="chicken dish"
           />
         </div>
       </div>
