@@ -1,5 +1,5 @@
 import { chefSmiling } from "../../images";
-import { ContactForm } from "./";
+import ContactForm from "./ContactForm";
 
 const options = [
   { label: "Advertising", value: "advertising" },

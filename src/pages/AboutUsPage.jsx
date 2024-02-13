@@ -1,4 +1,5 @@
-import { AboutUsHero, ChefQuestions } from "../components/AboutUs";
+import AboutUsHero from "../components/AboutUs/AboutUsHero";
+import ChefQuestions from "../components/AboutUs/ChefQuestions";
 import {
   SocialLinks,
   SubscribtionBanner,

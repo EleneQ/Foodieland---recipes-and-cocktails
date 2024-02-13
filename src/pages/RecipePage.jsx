@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 import {
   RecipeInfo,
@@ -26,12 +27,12 @@ const RecipePage = () => {
   useEffect(() => {
     const fetchRecipeData = async () => {
       try {
-        const res = await fetch(
+        const res = await axios.get(
           `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
         );
-        const { meals } = await res.json();
+        const { meals } = res.data;
 
-        setRecipeInfo(meals ? meals[0] : {});
+        setRecipeInfo(meals[0]);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching recipe data:", error);

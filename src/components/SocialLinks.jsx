@@ -3,20 +3,17 @@ import classnames from "classnames";
 import { PropTypes } from "prop-types";
 
 const SocialLinks = ({ style, className }) => {
-  const classes = classnames(
-    className,
-    "flex gap-[2rem] items-center"
-  );
+  const classes = classnames(className, "flex gap-[2rem] items-center");
 
   return (
     <ul style={style} className={classes}>
-      <li className="cursor-pointer">
+      <li className="social-link">
         <FaFacebookF />
       </li>
-      <li className="cursor-pointer">
+      <li className="social-link">
         <FaTwitter />
       </li>
-      <li className="cursor-pointer">
+      <li className="social-link">
         <FaInstagram />
       </li>
     </ul>

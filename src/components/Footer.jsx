@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { navLinks } from "../constans/data";
 import { SocialLinks } from "./";
@@ -15,9 +15,16 @@ const Footer = () => {
         </p>
         <nav>
           <ul className="flex gap-5 md:gap-[3rem] font-medium text-[14px]">
-            {navLinks.map((navLink) => (
-              <li key={navLink.id}>
-                <Link to={navLink.link}>{navLink.name}</Link>
+            {navLinks.map((link) => (
+              <li key={link.id}>
+                <NavLink
+                  to={link.link}
+                  className={({ isActive }) =>
+                    isActive ? "text-accent-pink-500" : "text-black"
+                  }
+                >
+                  {link.name}
+                </NavLink>
               </li>
             ))}
           </ul>

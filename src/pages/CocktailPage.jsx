@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import { CocktailInfo } from "../components/CocktailPage";
+import CocktailInfo from "../components/CocktailPage/CocktailInfo";
 
 const CocktailPage = () => {
   const [recipeInfo, setRecipeInfo] = useState({});

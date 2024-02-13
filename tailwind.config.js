@@ -10,6 +10,7 @@ export default {
         "primary-blue-300": "#E7F9FD",
         "gray-400": "#00000099",
         "gray-500": "#0000000D",
+        "accent-pink-500": "#EC4899",
       },
       height: {
         "hero-height-lg": "620px",

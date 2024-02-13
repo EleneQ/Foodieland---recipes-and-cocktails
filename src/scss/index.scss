@@ -9,6 +9,9 @@
   .padding-x {
     @apply px-[1.3rem] sm:px-[calc(4vw+1rem)] lg:px-[5rem];
   }
+  .social-link {
+    @apply cursor-pointer transition-colors duration-200 hover:text-accent-pink-500;
+  }
 }
 
 body {

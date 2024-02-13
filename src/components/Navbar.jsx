@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
 import { navLinks } from "../constans/data";
@@ -32,9 +32,16 @@ const Navbar = () => {
       >
         <nav>
           <ul className="flex gap-[3rem] font-medium text-[14px] flex-col md:flex-row max-md:justify-center items-center h-full">
-            {navLinks.map((navLink) => (
-              <li key={navLink.id} onClick={() => setExpanded(false)}>
-                <Link to={navLink.link}>{navLink.name}</Link>
+            {navLinks.map((link) => (
+              <li key={link.id} onClick={() => setExpanded(false)}>
+                <NavLink
+                  to={link.link}
+                  className={({ isActive }) =>
+                    isActive ? "text-accent-pink-500" : "text-black"
+                  }
+                >
+                  {link.name}
+                </NavLink>
               </li>
             ))}
           </ul>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { CocktailsShowcase, SearchBar } from "../components/CocktailsPage";
+import CocktailsShowcase from "../components/CocktailsPage/CocktailsShowcase";
+import SearchBar from "../components/CocktailsPage/SearchBar";
 import {
   EatHealthyCard,
   SubscribtionBanner,
