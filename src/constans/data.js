@@ -54,20 +54,20 @@ export const instagramPosts = [
   },
 ];
 
-export const dummyNutritionData = {
+export const nutritionData = {
   calories: 250,
   totalWeight: 65,
   totalDaily: {
-    FAT: { quantity: 0.3, unit: "%" },
-    ENERC_KCAL: { quantity: 20, unit: "%" },
-    FIBTG: { quantity: 3, unit: "%" },
-    CHOLE: { quantity: 0.2, unit: "%" },
+    Fat: { quantity: 0.3, unit: "%" },
+    Energy_Kcal: { quantity: 20, unit: "%" },
+    Fiber: { quantity: 3, unit: "%" },
+    Cholesterol: { quantity: 0.2, unit: "%" },
   },
   healthLabels: [
-    "FAT_FREE",
-    "LOW_FAT_ABS",
-    "LOW_POTASSIUM",
-    "KIDNEY_FRIENDLY",
-    "LIVER_FRIENDLY",
+    "Fat Free",
+    "Low Fat Abs",
+    "Low Potassium",
+    "Kidney Friendly",
+    "Liver Friendly",
   ],
 };

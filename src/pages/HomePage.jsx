@@ -6,6 +6,7 @@ import ChefCTA from "../components/HomePage/ChefCTA";
 import InstagramCTA from "../components/HomePage/InstagramCTA";
 import DeliciousRecipesSelection from "../components/HomePage/DeliciousRecipesSelection";
 import { SubscribtionBanner } from "../components";
+import { RecipeProvider } from "../context/RecipeContext";
 
 const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -13,14 +14,17 @@ const HomePage = () => {
   return (
     <main>
       <Hero />
-      <AllCategories
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-      />
-      <RecipesShowcase selectedCategory={selectedCategory} />
-      <ChefCTA />
-      <InstagramCTA />
-      <DeliciousRecipesSelection />
+
+      <RecipeProvider>
+        <AllCategories
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+        <RecipesShowcase selectedCategory={selectedCategory} />
+        <ChefCTA />
+        <InstagramCTA />
+        <DeliciousRecipesSelection />
+      </RecipeProvider>
       <SubscribtionBanner />
     </main>
   );

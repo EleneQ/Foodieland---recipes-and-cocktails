@@ -8,7 +8,7 @@ const initialFormData = {
   name: "",
   email: "",
   subject: "",
-  enquery: "",
+  enquery: "offer",
   message: "",
 };
 
