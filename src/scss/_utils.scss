@@ -58,3 +58,9 @@
     box-shadow: 0 0 10px rgb(210, 208, 208);
   }
 }
+
+@mixin grid-center {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}

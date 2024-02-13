@@ -1,0 +1,22 @@
+@use "../utils" as utils;
+
+.additional-recipes-grid {
+  @include utils.grid-center;
+  grid-template-columns: minmax(9rem, 19rem);
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  grid-auto-rows: 1fr;
+}
+
+@media (min-width: 500px) {
+  .additional-recipes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .additional-recipes-grid {
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+  }
+}

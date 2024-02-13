@@ -4,11 +4,9 @@ import PropTypes from "prop-types";
 
 import { playButton } from "../../images";
 import { PosterProfile } from "../";
-import {
-  NutritionInfoCard,
-  RecipeInfoDetails,
-  SharePrintButtonGroup,
-} from "./";
+import NutritionInfoCard from "./NutritionInfoCard";
+import RecipeInfoDetails from "./RecipeInfoDetails";
+import SharePrintButtonGroup from "./SharePrintButtonGroup";
 import useOutsideClickHandler from "../../hooks/useOutsideClickHandler";
 
 const RecipeInfo = ({ recipeInfo, ingredients, measurements }) => {

@@ -1,0 +1,53 @@
+.primary-nav {
+  transition: transform 400ms ease-in-out;
+}
+
+.mobile-menu {
+  display: block;
+  right: 2rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  order: 2;
+  padding: 5px;
+}
+
+.hamburger {
+  position: relative;
+
+  &::before {
+    bottom: 6px;
+  }
+
+  &::after {
+    top: 6px;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 1.7rem;
+  height: 2px;
+  background-color: black;
+  transition: transform 350ms ease-in-out, opacity 200ms linear;
+}
+
+.mobile-menu.active .hamburger {
+  transform: rotate(45deg);
+
+  &::before {
+    opacity: 0;
+  }
+
+  &::after {
+    transform: rotate(90deg) translate(-6px);
+  }
+}

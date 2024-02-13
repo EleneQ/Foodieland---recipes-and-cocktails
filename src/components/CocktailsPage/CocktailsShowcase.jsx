@@ -8,11 +8,11 @@ import useFetchEffect from "../../hooks/useFetchEffect";
 
 const CocktailsShowcase = ({ cocktails, setCocktails }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [recipesPerPage] = useState(6);
+  const [cocktailsPerPage] = useState(6);
 
   // Pagination
-  const indexOfLastPost = currentPage * recipesPerPage;
-  const indexOfFirstPost = indexOfLastPost - recipesPerPage;
+  const indexOfLastPost = currentPage * cocktailsPerPage;
+  const indexOfFirstPost = indexOfLastPost - cocktailsPerPage;
   const currentCocktails = cocktails.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNum) => {
@@ -86,10 +86,11 @@ const CocktailsShowcase = ({ cocktails, setCocktails }) => {
           );
         })}
       </ul>
+      
       <Pagination
         className={"mt-[2.5rem] text-center"}
-        recipesPerPage={recipesPerPage}
-        allRecipes={cocktails}
+        itemsPerPage={cocktailsPerPage}
+        items={cocktails}
         currentPage={currentPage}
         paginate={paginate}
       />

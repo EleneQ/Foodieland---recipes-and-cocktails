@@ -1,0 +1,14 @@
+@media (min-width: 450px) {
+  .cocktail-card {
+    display: grid;
+    grid-template-columns: minmax(150px, 235px) 1fr;
+    gap: 1.25rem;
+    background-image: none !important;
+  }
+}
+
+@media (min-width: 1150px) {
+  .cocktail-card {
+    grid-template-columns: minmax(180px, 270px) 1fr;
+  }
+}

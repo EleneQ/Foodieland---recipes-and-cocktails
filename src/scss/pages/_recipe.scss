@@ -1,0 +1,30 @@
+.ingredient-info {
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 0.6rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    align-items: center;
+    color: rgba(0, 0, 0, 0.6);
+
+    span {
+      color: black;
+      font-weight: 500;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  /* RECIPE INFO DETAILS */
+  .recipe-info-details > * {
+    padding-right: 2rem;
+
+    &:not(:first-child) {
+      padding-left: 2rem;
+    }
+
+    &:not(:last-child) {
+      border-right: rgba(0, 0, 0, 0.1) 1px solid;
+    }
+  }
+}

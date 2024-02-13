@@ -1,0 +1,24 @@
+.subscribtion-banner {
+  background-image: url("../images/SubscribtionBanner/vegetables.png"),
+    url("../images/SubscribtionBanner/salad.png");
+  background-repeat: no-repeat;
+  background-position: bottom left, bottom right;
+  background-size: 200px, 130px;
+}
+
+@media (min-width: 700px) {
+  .subscribtion-banner {
+    background-image: url("../images/SubscribtionBanner/vegetables.png"),
+      url("../images/SubscribtionBanner/salad.png"),
+      url("../images/SubscribtionBanner/herb.png");
+    background-position: bottom left, bottom right, bottom 90px right 17%;
+    background-size: 250px, 160px, 65px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .subscribtion-banner {
+    background-position: bottom left, bottom right, bottom 100px right 20%;
+    background-size: auto;
+  }
+}
