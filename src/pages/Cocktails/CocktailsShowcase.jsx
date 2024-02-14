@@ -4,20 +4,28 @@ import Pagination from "../../components/Pagination";
 import Loading from "../../components/Loading";
 import formatDate from "../../utils/formatDate";
 import useFetch from "../../hooks/useFetch";
-import { COCKTAILS_BY_LETTER } from "../../constans/endpoints";
+import { COCKTAILS_BY_NAME } from "../../constans/endpoints";
 
-const CocktailsShowcase = ({ cocktails, setCocktails }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const CocktailsShowcase = ({
+  cocktails,
+  setCocktails,
+  searchParams,
+  setSearchParams,
+}) => {
   const [cocktailsPerPage] = useState(6);
 
   // Pagination
+  const currentPage = parseFloat(searchParams.get("p"));
   const indexOfLastPost = currentPage * cocktailsPerPage;
   const indexOfFirstPost = indexOfLastPost - cocktailsPerPage;
   const currentCocktails =
     cocktails?.slice(indexOfFirstPost, indexOfLastPost) || [];
 
   const paginate = (pageNum) => {
-    setCurrentPage(pageNum);
+    setSearchParams((prev) => {
+      prev.set("p", pageNum);
+      return prev;
+    });
 
     scrollTo({
       top: 200,
@@ -25,12 +33,24 @@ const CocktailsShowcase = ({ cocktails, setCocktails }) => {
     });
   };
 
+  //get back to page 1
+  useEffect(() => {
+    setSearchParams((prev) => {
+      prev.set("p", 1);
+      return prev;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cocktails.length]);
+
   //fetch cocktails
   const {
     loading: loadingCocktails,
     error,
     value: { drinks } = [],
-  } = useFetch(`${COCKTAILS_BY_LETTER}c`, {}, []);
+  } = useFetch(`${COCKTAILS_BY_NAME}${searchParams.get("query")}`, {}, [
+    searchParams,
+    setCocktails,
+  ]);
 
   //set cocktails
   useEffect(() => {

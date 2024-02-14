@@ -1,12 +1,14 @@
 import { useState } from "react";
 import CocktailsShowcase from "../Cocktails/CocktailsShowcase";
 import SearchBar from "./SearchBar";
-import EatHealthyCard from "../../components/EatHealthyCard"
+import EatHealthyCard from "../../components/EatHealthyCard";
 import SubscriptionBanner from "../../components/SubscriptionBanner";
-import OtherRecipes from "../../components/OtherRecipes"
+import OtherRecipes from "../../components/OtherRecipes";
+import { useSearchParams } from "react-router-dom";
 
 const CocktailsPage = () => {
   const [cocktails, setCocktails] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams({ query: "", p: 1 });
 
   return (
     <main>
@@ -18,10 +20,16 @@ const CocktailsPage = () => {
         </p>
       </section>
 
-      <SearchBar setCocktails={setCocktails} />
+      <SearchBar setSearchParams={setSearchParams} />
 
       <div className="padding-x max-width flex flex-col lg:flex-row md:justify-between gap-[4rem] mt-[4rem]">
-        <CocktailsShowcase cocktails={cocktails} setCocktails={setCocktails} />
+        <CocktailsShowcase
+          cocktails={cocktails}
+          setCocktails={setCocktails}
+          searchParams={searchParams}
+          setSearchParams={setSearchParams}
+        />
+
         <div className="sm:flex items-center justify-between gap-[2rem] lg:block">
           <OtherRecipes sectionTitle="Tasty Recipes" randomize />
           <EatHealthyCard />
