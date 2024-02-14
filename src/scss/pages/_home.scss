@@ -1,4 +1,4 @@
-@use "../utils" as utils;
+@use "../globals/utils" as utils;
 
 .recipe-grid {
   @include utils.grid-center;
