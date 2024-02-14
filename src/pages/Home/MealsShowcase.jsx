@@ -2,13 +2,13 @@ import { useState } from "react";
 import Pagination from "../../components/Pagination";
 import SearchBar from "./SearchBar";
 import MealCard from "./MealCard";
-import { useRecipes } from "../../context/RecipeContext";
+import { useMealRecipes } from "../../context/MealsRecipeContext";
 
 const MealsShowcase = ({ selectedCategory }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(9);
 
-  const { recipes } = useRecipes();
+  const { recipes } = useMealRecipes();
 
   //pagination
   const indexOfLastPost = currentPage * recipesPerPage;

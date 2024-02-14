@@ -1,6 +1,4 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
 import RecipeInfo from "../../components/Recipe/RecipeInfo";
 import IngredientsList from "../../components/Recipe/IngredientsList";
 import CookingDirections from "../../components/Recipe/RecipeDirections";
@@ -9,32 +7,22 @@ import SubscriptionBanner from "../../components/SubscriptionBanner";
 import AdditionalRecipes from "../../components/AdditionalRecipes";
 import OtherRecipes from "../../components/OtherRecipes";
 import Loading from "../../components/Loading";
-import { RECIPE_DETAILS } from "../../constans/endpoints";
+import { MEAL_DETAILS } from "../../constans/endpoints";
 import { womanCooking } from "../../images";
 import { extractIngredientsMeasurements } from "../../utils/extractIngredientsMeasurements";
+import useFetch from "../../hooks/useFetch";
 
 const MealRecipePage = () => {
-  const [recipeInfo, setRecipeInfo] = useState({});
-  const [loading, setLoading] = useState(true);
-
   const { id } = useParams();
 
   //fetch data
-  useEffect(() => {
-    const fetchRecipeData = async () => {
-      try {
-        const res = await axios.get(`${RECIPE_DETAILS}${id}`);
-        const { meals } = res.data;
+  const {
+    loading,
+    error,
+    value: { meals } = [],
+  } = useFetch(`${MEAL_DETAILS}${id}`, {}, [id]);
 
-        setRecipeInfo(meals[0]);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching recipe data:", error);
-        setLoading(false);
-      }
-    };
-    fetchRecipeData();
-  }, [id]);
+  const recipeInfo = meals?.[0];
 
   const { ingredients, measurements } =
     extractIngredientsMeasurements(recipeInfo);
@@ -43,6 +31,8 @@ const MealRecipePage = () => {
     <main>
       {loading ? (
         <Loading />
+      ) : error ? (
+        <p>{error}</p>
       ) : (
         <>
           <RecipeInfo

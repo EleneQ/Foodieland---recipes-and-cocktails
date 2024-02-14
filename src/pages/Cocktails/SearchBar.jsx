@@ -1,25 +1,28 @@
 import { useState } from "react";
 
 import Button from "../../components/Button";
-import fetchDataFromApi from "../../utils/fetchDataFromApi";
+import axios from "axios";
+import { COCKTAILS_BY_NAME } from "../../constans/endpoints";
 
 const SearchBar = ({ setCocktails }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
+  const searchAllCocktailsByName = async () => {
+    try {
+      const {
+        data: { drinks },
+      } = await axios.get(`${COCKTAILS_BY_NAME}${searchTerm}`);
+      setCocktails(drinks || []);
+    } catch (err) {
+      console.error("Error fetching recipes:", err.message);
+    }
+  };
+
   const formSubmissionHandler = (e) => {
     e.preventDefault();
 
-    fetchCocktailsByName();
+    searchAllCocktailsByName();
     setSearchTerm("");
-  };
-
-  const fetchCocktailsByName = async () => {
-    if (searchTerm) {
-      const { drinks } = await fetchDataFromApi(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`
-      );
-      setCocktails(drinks || []);
-    }
   };
 
   return (

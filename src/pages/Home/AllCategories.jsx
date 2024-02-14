@@ -1,42 +1,46 @@
-import { useState, useLayoutEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import useFetchEffect from "../../hooks/useFetchEffect";
 import useFetch from "../../hooks/useFetch";
 import Loading from "../../components/Loading";
-import { ALL_RECIPE_CATEGORIES } from "../../constans/endpoints";
-import { useRecipes } from "../../context/RecipeContext";
+import { ALL_MEAL_CATEGORIES } from "../../constans/endpoints";
+import { useMealRecipes } from "../../context/MealsRecipeContext";
 import gradientsArray from "../../constans/gradientsArray";
+import {
+  MEALS_BY_CATEGORY,
+  MEALS_BY_LETTER,
+} from "../../constans/endpoints";
+import { useCarouselWidth } from "../../hooks/useCarouselWidth";
 
 const AllCategories = ({ selectedCategory, setSelectedCategory }) => {
-  const [width, setWidth] = useState(0);
   const carousel = useRef();
-
-  const { setRecipes } = useRecipes();
+  const { setRecipes } = useMealRecipes();
 
   const {
     loading: loadingCategories,
     error: errorCategories,
     value: { categories } = [],
-  } = useFetch(ALL_RECIPE_CATEGORIES, {}, []);
+  } = useFetch(ALL_MEAL_CATEGORIES, {}, []);
 
   //carousel width
-  useLayoutEffect(() => {
-    if (carousel.current) {
-      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-    }
-  }, [categories]);
+  const width = useCarouselWidth(carousel, categories);
 
   //fetch recipes
-  useFetchEffect(
+  const { loading: loadingMeals, value: { meals } = [] } = useFetch(
     !selectedCategory || selectedCategory === "all"
-      ? "https://www.themealdb.com/api/json/v1/1/search.php?f=c"
-      : `https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`,
-    setRecipes,
-    (data) => data.meals || [],
+      ? `${MEALS_BY_LETTER}c`
+      : `${MEALS_BY_CATEGORY}${selectedCategory}`,
     {},
     [selectedCategory]
   );
 
+  //set recipes
+  useEffect(() => {
+    if (!loadingMeals) {
+      setRecipes(meals);
+    }
+  }, [setRecipes, loadingMeals, meals]);
+
+  //category selection
   const categorySelectionHandler = (categoryName) => {
     if (selectedCategory.toLowerCase() === categoryName.toLowerCase()) {
       setSelectedCategory("all");

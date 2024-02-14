@@ -1,21 +1,17 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
 import axios from "axios";
-import { RECIPE_BASE_URL } from "../../constans/endpoints";
-import { useRecipes } from "../../context/RecipeContext";
+import { MEALS_BY_NAME } from "../../constans/endpoints";
+import { useMealRecipes } from "../../context/MealsRecipeContext";
 
 const SearchBar = ({ selectedCategory }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const { recipes, setRecipes } = useMealRecipes();
 
-  const { recipes, setRecipes } = useRecipes();
-
-  const searchAllRecipesByName = async () => {
+  const searchAllMealsByName = async () => {
     try {
       const {
         data: { meals },
-      } = await axios.get(
-        `${RECIPE_BASE_URL}/search.php?s=${searchTerm.toUpperCase()}`
-      );
+      } = await axios.get(`${MEALS_BY_NAME}${searchTerm}`);
       setRecipes(meals || []);
     } catch (err) {
       console.error("Error fetching recipes:", err.message);
@@ -26,7 +22,7 @@ const SearchBar = ({ selectedCategory }) => {
     e.preventDefault();
 
     if (!selectedCategory || selectedCategory === "all") {
-      await searchAllRecipesByName();
+      await searchAllMealsByName();
     } else {
       setRecipes(
         recipes.filter((recipe) =>
@@ -55,12 +51,6 @@ const SearchBar = ({ selectedCategory }) => {
       </button>
     </form>
   );
-};
-
-SearchBar.propTypes = {
-  selectedCategory: PropTypes.string.isRequired,
-  setRecipes: PropTypes.func.isRequired,
-  recipes: PropTypes.array.isRequired,
 };
 
 export default SearchBar;

@@ -1,15 +1,14 @@
-import PropTypes from "prop-types";
 import  Loading from "./Loading";
 import RecipeCard from "../pages/Home/MealCard";
 import useFetch from "../hooks/useFetch";
-import { RECIPES_BY_LETTER } from "../constans/endpoints";
+import { MEALS_BY_LETTER } from "../constans/endpoints";
 
 const AdditionalRecipes = ({ letterToSearchBy, maxRecipeAmount }) => {
   const {
     loading,
     error,
     value: { meals } = [],
-  } = useFetch(`${RECIPES_BY_LETTER}${letterToSearchBy}`, {}, [
+  } = useFetch(`${MEALS_BY_LETTER}${letterToSearchBy}`, {}, [
     letterToSearchBy,
     maxRecipeAmount,
   ]);
@@ -29,11 +28,6 @@ const AdditionalRecipes = ({ letterToSearchBy, maxRecipeAmount }) => {
       )}
     </>
   );
-};
-
-AdditionalRecipes.propTypes = {
-  letterToSearchBy: PropTypes.string.isRequired,
-  maxRecipeAmount: PropTypes.number.isRequired,
 };
 
 export default AdditionalRecipes;

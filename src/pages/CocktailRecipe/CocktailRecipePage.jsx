@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { COCKTAIL_DETAILS } from "../../constans/endpoints";
 import IngredientsList from "../../components/Recipe/IngredientsList";
 import RecipeInfo from "../../components/Recipe/RecipeInfo";
@@ -9,32 +8,21 @@ import Loading from "../../components/Loading";
 import OtherRecipes from "../../components/OtherRecipes";
 import SubscriptionBanner from "../../components/SubscriptionBanner";
 import CookingDirections from "../../components/Recipe/RecipeDirections";
-import axios from "axios";
 import { bartender } from "../../images";
 import { extractIngredientsMeasurements } from "../../utils/extractIngredientsMeasurements";
+import useFetch from "../../hooks/useFetch";
 
 const CocktailRecipePage = () => {
-  const [cocktailInfo, setCocktailnfo] = useState({});
-  const [loading, setLoading] = useState(true);
-
   const { id } = useParams();
 
   //fetch data
-  useEffect(() => {
-    const fetchRecipeData = async () => {
-      try {
-        const res = await axios.get(`${COCKTAIL_DETAILS}${id}`);
-        const { drinks } = res.data;
+  const {
+    loading,
+    error,
+    value: { drinks } = [],
+  } = useFetch(`${COCKTAIL_DETAILS}${id}`, {}, [id]);
 
-        setCocktailnfo(drinks[0]);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching recipe data:", error);
-        setLoading(false);
-      }
-    };
-    fetchRecipeData();
-  }, [id]);
+  const cocktailInfo = drinks?.[0];
 
   const { ingredients, measurements } =
     extractIngredientsMeasurements(cocktailInfo);
@@ -43,6 +31,8 @@ const CocktailRecipePage = () => {
     <main>
       {loading ? (
         <Loading />
+      ) : error ? (
+        <p>{error}</p>
       ) : (
         <>
           <RecipeInfo

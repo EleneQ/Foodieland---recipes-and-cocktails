@@ -1,6 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-
 import { navLinks } from "../constans/data";
 import SocialLinks from "./SocialLinks";
 
