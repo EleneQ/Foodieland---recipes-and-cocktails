@@ -1,12 +1,12 @@
 import ContactUs from "./ContactUs";
-import SubscribtionBanner from "../../components/SubscribtionBanner"
+import SubscriptionBanner from "../../components/SubscriptionBanner";
 import AdditionalRecipes from "../../components/AdditionalRecipes"
 
 const ContactUsPage = () => {
   return (
     <main>
       <ContactUs />
-      <SubscribtionBanner />
+      <SubscriptionBanner />
       <section className="padding-x max-width mt-[6rem] mb-[7rem]">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-[3rem]">
           Check out these great recipes

@@ -2,14 +2,11 @@
 @use "./components/nav";
 @use "./components/eatHealthyCard";
 @use "./components/footer";
-@use "./pages/hero";
-@use "./pages/chefCta";
-@use "./pages/additionalRecipes";
-@use "./pages/subscriptionBanner";
+@use "./components/additionalRecipes";
+@use "./components/subscriptionBanner";
+@use "./components/recipe";
 @use "./pages/contactUs";
-@use "./pages/chefQuestions";
 @use "./pages/home";
-@use "./pages/recipe";
 @use "./pages/cocktails";
 
 @tailwind base;

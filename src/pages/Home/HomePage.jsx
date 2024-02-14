@@ -5,7 +5,7 @@ import MealsShowcase from "./MealsShowcase";
 import ChefCTA from "./ChefCTA";
 import InstagramCTA from "./InstagramCTA";
 import DeliciousRecipesSelection from "./DeliciousRecipesSelection";
-import SubscribtionBanner from "../../components/SubscribtionBanner";
+import SubscriptionBanner from "../../components/SubscriptionBanner";
 import { RecipeProvider } from "../../context/RecipeContext";
 
 const HomePage = () => {
@@ -25,7 +25,8 @@ const HomePage = () => {
         <InstagramCTA />
         <DeliciousRecipesSelection />
       </RecipeProvider>
-      <SubscribtionBanner />
+      
+      <SubscriptionBanner />
     </main>
   );
 };

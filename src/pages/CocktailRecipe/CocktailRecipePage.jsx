@@ -7,7 +7,7 @@ import AdditionalRecipes from "../../components/AdditionalRecipes";
 import EatHealthyCard from "../../components/EatHealthyCard";
 import Loading from "../../components/Loading";
 import OtherRecipes from "../../components/OtherRecipes";
-import SubscribtionBanner from "../../components/SubscribtionBanner";
+import SubscriptionBanner from "../../components/SubscriptionBanner";
 import CookingDirections from "../../components/Recipe/RecipeDirections";
 import axios from "axios";
 import { bartender } from "../../images";
@@ -72,7 +72,7 @@ const CocktailRecipePage = () => {
             </div>
           </div>
 
-          <SubscribtionBanner />
+          <SubscriptionBanner />
 
           <section className="padding-x max-width mt-[6rem] mb-[6rem] md:mb-[7rem]">
             <h2 className="text-3xl md:text-4xl font-semibold text-center mb-8">

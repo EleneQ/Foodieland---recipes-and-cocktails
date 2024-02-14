@@ -5,7 +5,7 @@ import RecipeInfo from "../../components/Recipe/RecipeInfo";
 import IngredientsList from "../../components/Recipe/IngredientsList";
 import CookingDirections from "../../components/Recipe/RecipeDirections";
 import EatHealthyCard from "../../components/EatHealthyCard";
-import SubscribtionBanner from "../../components/SubscribtionBanner";
+import SubscriptionBanner from "../../components/SubscriptionBanner";
 import AdditionalRecipes from "../../components/AdditionalRecipes";
 import OtherRecipes from "../../components/OtherRecipes";
 import Loading from "../../components/Loading";
@@ -72,7 +72,7 @@ const MealRecipePage = () => {
             </div>
           </div>
 
-          <SubscribtionBanner />
+          <SubscriptionBanner />
 
           <section className="padding-x max-width mt-[6rem] mb-[6rem] md:mb-[7rem]">
             <h2 className="text-3xl md:text-4xl font-semibold text-center mb-8">

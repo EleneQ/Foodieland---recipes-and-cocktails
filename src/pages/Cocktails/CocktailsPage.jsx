@@ -2,7 +2,7 @@ import { useState } from "react";
 import CocktailsShowcase from "../Cocktails/CocktailsShowcase";
 import SearchBar from "./SearchBar";
 import EatHealthyCard from "../../components/EatHealthyCard"
-import SubscribtionBanner from "../../components/SubscribtionBanner"
+import SubscriptionBanner from "../../components/SubscriptionBanner";
 import OtherRecipes from "../../components/OtherRecipes"
 
 const CocktailsPage = () => {
@@ -28,7 +28,7 @@ const CocktailsPage = () => {
         </div>
       </div>
 
-      <SubscribtionBanner />
+      <SubscriptionBanner />
     </main>
   );
 };

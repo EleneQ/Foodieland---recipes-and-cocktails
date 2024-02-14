@@ -1,7 +1,7 @@
 import AboutUsHero from "./AboutUsHero";
 import ChefQuestions from "./ChefQuestions";
 import SocialLinks from "../../components/SocialLinks";
-import SubscribtionBanner from "../../components/SubscribtionBanner";
+import SubscriptionBanner from "../../components/SubscriptionBanner";
 import AdditionalRecipes from "../../components/AdditionalRecipes";
 
 const AboutUsPage = () => {
@@ -17,7 +17,7 @@ const AboutUsPage = () => {
         </div>
       </div>
 
-      <SubscribtionBanner />
+      <SubscriptionBanner />
 
       <section className="padding-x max-width mt-[5rem] mb-[5rem] md:mb-[6rem]">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-[2rem] md:mb-[3rem]">

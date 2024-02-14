@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "./Button";
 
-const SubscribtionBanner = () => {
+const SubscriptionBanner = () => {
   const [email, setEmail] = useState();
 
   const submitionHandler = (e) => {
@@ -39,4 +39,5 @@ const SubscribtionBanner = () => {
     </section>
   );
 };
-export default SubscribtionBanner;
+
+export default SubscriptionBanner;
