@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
 import SearchBar from "./SearchBar";
 import MealCard from "./MealCard";
@@ -23,6 +23,10 @@ const MealsShowcase = ({ selectedCategory }) => {
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [recipes.length, selectedCategory]);
 
   return (
     <section className="padding-x max-width mt-[3.5rem] md:mt-[7rem]">

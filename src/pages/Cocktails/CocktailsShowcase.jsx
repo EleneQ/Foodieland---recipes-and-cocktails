@@ -35,10 +35,13 @@ const CocktailsShowcase = ({
 
   //get back to page 1
   useEffect(() => {
-    setSearchParams((prev) => {
-      prev.set("p", 1);
-      return prev;
-    });
+    setSearchParams(
+      (prev) => {
+        prev.set("p", 1);
+        return prev;
+      },
+      { replace: true }
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cocktails.length]);
 
@@ -54,7 +57,7 @@ const CocktailsShowcase = ({
 
   //set cocktails
   useEffect(() => {
-    if (!loadingCocktails) {
+    if (!loadingCocktails && drinks) {
       setCocktails(drinks);
     }
   }, [setCocktails, loadingCocktails, drinks]);
