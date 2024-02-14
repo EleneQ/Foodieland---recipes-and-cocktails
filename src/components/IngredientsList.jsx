@@ -1,7 +1,5 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
-
-import { Button } from "../";
+import { Button } from ".";
 
 const IngredientsList = ({ ingredients, measurements }) => {
   const [showAllIngredients, setShowAllIngredients] = useState(false);
@@ -63,11 +61,6 @@ const IngredientsList = ({ ingredients, measurements }) => {
       )}
     </section>
   );
-};
-
-IngredientsList.propTypes = {
-  ingredients: PropTypes.array.isRequired,
-  measurements: PropTypes.array.isRequired,
 };
 
 export default IngredientsList;

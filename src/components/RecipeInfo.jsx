@@ -1,33 +1,32 @@
 import { useRef } from "react";
 import { GrInfo } from "react-icons/gr";
-import PropTypes from "prop-types";
-
-import { playButton } from "../../images";
-import { PosterProfile } from "../";
+import { playButton } from "../images";
+import { PosterProfile } from ".";
 import NutritionInfoCard from "./NutritionInfoCard";
 import RecipeInfoDetails from "./RecipeInfoDetails";
 import SharePrintButtonGroup from "./SharePrintButtonGroup";
-import useOutsideClickHandler from "../../hooks/useOutsideClickHandler";
+import useOutsideClickHandler from "../hooks/useOutsideClickHandler";
 
-const RecipeInfo = ({ recipeInfo, ingredients, measurements }) => {
+const RecipeInfo = ({
+  ingredients,
+  measurements,
+  name,
+  category,
+  videoThumbnail,
+  videoLink,
+}) => {
   const additionalInfo = useRef();
   const [infoExpanded, setInfoExpanded] =
     useOutsideClickHandler(additionalInfo);
-
-  const {
-    strMeal: recipeName,
-    strCategory: category,
-    strMealThumb: recipeImg,
-    strYoutube: recipeYoutubeLink,
-  } = recipeInfo;
 
   return (
     <section className="padding-x max-width mt-[3rem] md:mt-[4rem] mb-[2.5rem]">
       <div className="flex items-center justify-between">
         <div className="flex-1">
-          <h1 className="text-3xl md:text-4xl font-bold">{recipeName}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold">{name}</h1>
           <div className="recipe-info-details | flex items-center max-md:justify-between my-5 md:my-[2rem]">
             <PosterProfile />
+
             <div className="md:hidden relative" ref={additionalInfo}>
               <button
                 className="rounded-full shadow-lg shadow-slate-300 p-4 bg-primary-blue-300"
@@ -61,12 +60,12 @@ const RecipeInfo = ({ recipeInfo, ingredients, measurements }) => {
         <div className="relative">
           <img
             className="rounded-2xl md:h-[600px] aspect-[1/0.7] flex-1"
-            src={recipeImg}
-            alt={recipeName}
+            src={videoThumbnail}
+            alt={name}
           />
           <a
             className="absolute top-[50%] -translate-x-[50%] left-[50%] -translate-y-[50%]"
-            href={recipeYoutubeLink}
+            href={videoLink}
             target="_blank"
             rel="noreferrer"
           >
@@ -96,17 +95,6 @@ const RecipeInfo = ({ recipeInfo, ingredients, measurements }) => {
       <SharePrintButtonGroup className={"md:hidden mt-4"} />
     </section>
   );
-};
-
-RecipeInfo.propTypes = {
-  recipeInfo: PropTypes.shape({
-    strMeal: PropTypes.string.isRequired,
-    strCategory: PropTypes.string.isRequired,
-    strMealThumb: PropTypes.string.isRequired,
-    strYoutube: PropTypes.string.isRequired,
-  }).isRequired,
-  ingredients: PropTypes.array.isRequired,
-  measurements: PropTypes.array.isRequired,
 };
 
 export default RecipeInfo;

@@ -1,4 +1,4 @@
-import { nutritionData } from "../../constans/data";
+import { nutritionData } from "../constans/data";
 
 const NutritionInfoCard = ({ className }) => {
   const { calories, totalWeight, totalDaily, healthLabels } = nutritionData;

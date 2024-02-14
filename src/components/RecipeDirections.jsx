@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { womanCooking } from "../../images";
 
-const CookingDirections = ({ recipeInfo }) => {
-  const [instructionsParts, setInstructionsParts] = useState([]);
+const CookingDirections = ({ recipeInfo, processImage }) => {
+  const [instructionParts, setInstructionParts] = useState([]);
   const [selectedLabels, setSelectedLabels] = useState([]);
 
   const { strInstructions: directions } = recipeInfo;
@@ -16,13 +14,12 @@ const CookingDirections = ({ recipeInfo }) => {
       const sentences = directions.split(/(?<=[.!?])\s+/);
       const maxSentencesPerPart = 5;
 
-      // Create parts with a maximum of 'maxSentencesPerPart' sentences each
       const parts = [];
       for (let i = 0; i < sentences.length; i += maxSentencesPerPart) {
         const part = sentences.slice(i, i + maxSentencesPerPart).join(" ");
         parts.push(part);
       }
-      setInstructionsParts(parts);
+      setInstructionParts(parts);
     };
 
     splitInstructions();
@@ -42,7 +39,7 @@ const CookingDirections = ({ recipeInfo }) => {
     <section className="max-w-[840px] mt-[4rem] md:mt-[5rem]">
       <h2 className="text-3xl font-bold">Directions</h2>
       <ul>
-        {instructionsParts.map((part, index) => {
+        {instructionParts.map((part, index) => {
           const isLabelSelected = selectedLabels.includes(index);
 
           return (
@@ -75,9 +72,10 @@ const CookingDirections = ({ recipeInfo }) => {
 
               {index === 0 && (
                 <img
-                  className="mt-7"
-                  src={womanCooking}
-                  alt="a woman smiling and stirring a pot"
+                  className="mt-7 rounded-2xl object-cover max-h-[400px] w-[100%] object-center"
+                  src={processImage}
+                  alt="process of creation"
+                  loading="lazy"
                 />
               )}
             </li>
@@ -86,12 +84,6 @@ const CookingDirections = ({ recipeInfo }) => {
       </ul>
     </section>
   );
-};
-
-CookingDirections.propTypes = {
-  recipeInfo: PropTypes.shape({
-    strInstructions: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default CookingDirections;

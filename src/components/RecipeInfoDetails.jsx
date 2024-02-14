@@ -1,10 +1,11 @@
 import { PiForkKnifeFill } from "react-icons/pi";
 import { FaClock } from "react-icons/fa6";
-import PropTypes from "prop-types";
+import { useMemo } from "react";
 
 const RecipeInfoDetails = ({ category, className }) => {
-  //TODO: don't change between renders
-  const randPrepTime = Math.floor(Math.random() * (25 - 5 + 1)) + 5;
+  const randPrepTime = useMemo(() => {
+    return Math.floor(Math.random() * (25 - 5 + 1)) + 5;
+  }, []);
 
   return (
     <div className={className}>
@@ -21,11 +22,6 @@ const RecipeInfoDetails = ({ category, className }) => {
       </p>
     </div>
   );
-};
-
-RecipeInfoDetails.propTypes = {
-  category: PropTypes.string.isRequired,
-  className: PropTypes.string,
 };
 
 export default RecipeInfoDetails;

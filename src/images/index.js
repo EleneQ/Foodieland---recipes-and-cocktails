@@ -42,6 +42,9 @@ import chefSmiling from "./ContactUs/chefSmiling.png";
 /* ABOUT US */
 import ourChefCooking from "./AboutUs/ourChefCooking.png";
 
+/* COCKTAIL */
+import bartender from "./Cocktail/bartender.jpg";
+
 export {
   cabbage,
   onion,
@@ -65,4 +68,5 @@ export {
   playButton,
   chefSmiling,
   ourChefCooking,
+  bartender,
 };
