@@ -1,9 +1,8 @@
 import { useState, useLayoutEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { PropTypes } from "prop-types";
 import useFetchEffect from "../../hooks/useFetchEffect";
 import useFetch from "../../hooks/useFetch";
-import { Loading } from "../";
+import Loading from "../../components/Loading";
 import { ALL_RECIPE_CATEGORIES } from "../../constans/endpoints";
 import { useRecipes } from "../../context/RecipeContext";
 import gradientsArray from "../../constans/gradientsArray";
@@ -93,7 +92,6 @@ const AllCategories = ({ selectedCategory, setSelectedCategory }) => {
                       borderRadius: "inherit",
                       backgroundImage: gradientsArray[gradientIndex] || "",
                     }}
-                    //TODO: not be able to click when dragging
                     onClick={() => categorySelectionHandler(categoryName)}
                   >
                     <img
@@ -111,12 +109,6 @@ const AllCategories = ({ selectedCategory, setSelectedCategory }) => {
       )}
     </section>
   );
-};
-
-AllCategories.propTypes = {
-  selectedCategory: PropTypes.string.isRequired,
-  setSelectedCategory: PropTypes.func.isRequired,
-  setRecipes: PropTypes.func.isRequired,
 };
 
 export default AllCategories;

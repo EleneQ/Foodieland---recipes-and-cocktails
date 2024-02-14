@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from ".";
+import Button from "../Button";
 
 const IngredientsList = ({ ingredients, measurements }) => {
   const [showAllIngredients, setShowAllIngredients] = useState(false);

@@ -1,7 +1,6 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
 
-import { Button } from "..";
+import Button from "../../components/Button";
 import fetchDataFromApi from "../../utils/fetchDataFromApi";
 
 const SearchBar = ({ setCocktails }) => {
@@ -41,10 +40,6 @@ const SearchBar = ({ setCocktails }) => {
       </Button>
     </form>
   );
-};
-
-SearchBar.propTypes = {
-  setCocktails: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

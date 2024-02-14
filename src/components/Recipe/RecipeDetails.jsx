@@ -2,7 +2,7 @@ import { PiForkKnifeFill } from "react-icons/pi";
 import { FaClock } from "react-icons/fa6";
 import { useMemo } from "react";
 
-const RecipeInfoDetails = ({ category, className }) => {
+const RecipeDetails = ({ category, className }) => {
   const randPrepTime = useMemo(() => {
     return Math.floor(Math.random() * (25 - 5 + 1)) + 5;
   }, []);
@@ -24,4 +24,4 @@ const RecipeInfoDetails = ({ category, className }) => {
   );
 };
 
-export default RecipeInfoDetails;
+export default RecipeDetails;

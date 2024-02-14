@@ -1,8 +1,7 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
 
-import { Dropdown } from "../";
-import { Button } from "..";
+import  Dropdown from "../../components/Dropdown";
+import Button from "../../components/Button";
 
 const initialFormData = {
   name: "",
@@ -110,15 +109,6 @@ const ContactForm = ({ dropdownOptions }) => {
       </Button>
     </form>
   );
-};
-
-ContactForm.propTypes = {
-  dropdownOptions: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    })
-  ).isRequired,
 };
 
 export default ContactForm;

@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 
 import { navLinks } from "../constans/data";
-import { SocialLinks } from "./";
+import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
   return (

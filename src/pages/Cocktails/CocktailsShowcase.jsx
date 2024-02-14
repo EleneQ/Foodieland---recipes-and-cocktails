@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-
-import { Pagination, Loading } from "../";
+import Pagination from "../../components/Pagination";
+import Loading from "../../components/Loading";
 import formatDate from "../../utils/formatDate";
 import useFetchEffect from "../../hooks/useFetchEffect";
 
@@ -96,11 +95,6 @@ const CocktailsShowcase = ({ cocktails, setCocktails }) => {
       />
     </section>
   );
-};
-
-CocktailsShowcase.propTypes = {
-  cocktails: PropTypes.array.isRequired,
-  setCocktails: PropTypes.func.isRequired,
 };
 
 export default CocktailsShowcase;

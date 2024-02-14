@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { PropTypes } from "prop-types";
-import { Pagination } from "../";
+import Pagination from "../../components/Pagination";
 import SearchBar from "./SearchBar";
-import RecipeCard from "./RecipeCard";
+import MealCard from "./MealCard";
 import { useRecipes } from "../../context/RecipeContext";
 
-const RecipesShowcase = ({ selectedCategory }) => {
+const MealsShowcase = ({ selectedCategory }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(9);
 
@@ -43,7 +42,7 @@ const RecipesShowcase = ({ selectedCategory }) => {
       <div>
         <ul className="recipe-grid">
           {currentRecipes.map((recipe) => (
-            <RecipeCard
+            <MealCard
               className={"px-3 pb-3 bg-primary-blue-gradient"}
               key={recipe.idMeal}
               recipe={recipe}
@@ -64,10 +63,4 @@ const RecipesShowcase = ({ selectedCategory }) => {
   );
 };
 
-RecipesShowcase.propTypes = {
-  selectedCategory: PropTypes.string.isRequired,
-  recipes: PropTypes.array.isRequired,
-  setRecipes: PropTypes.func.isRequired,
-};
-
-export default RecipesShowcase;
+export default MealsShowcase;

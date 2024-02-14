@@ -1,10 +1,9 @@
 import { PiForkKnifeFill } from "react-icons/pi";
 import { FaClock } from "react-icons/fa";
 import { MdAreaChart } from "react-icons/md";
-import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
 
-const RecipeCard = ({ recipe, selectedCategory, className }) => {
+const MealCard = ({ recipe, selectedCategory, className }) => {
   const randomMinutes = Math.floor(Math.random() * (50 - 25 + 1)) + 25;
 
   const {
@@ -52,10 +51,4 @@ const RecipeCard = ({ recipe, selectedCategory, className }) => {
   );
 };
 
-RecipeCard.propTypes = {
-  recipe: PropTypes.object.isRequired,
-  selectedCategory: PropTypes.string,
-  className: PropTypes.string,
-};
-
-export default RecipeCard;
+export default MealCard;

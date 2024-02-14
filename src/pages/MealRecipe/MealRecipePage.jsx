@@ -1,19 +1,17 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import RecipeInfo from "../components/RecipeInfo";
-import IngredientsList from "../components/IngredientsList";
-import CookingDirections from "../components/RecipeDirections";
-import {
-  EatHealthyCard,
-  SubscribtionBanner,
-  AdditionalRecipes,
-  OtherRecipes,
-} from "../components";
-import { Loading } from "../components";
-import { RECIPE_DETAILS } from "../constans/endpoints";
-import { womanCooking } from "../images";
-import { extractIngredientsMeasurements } from "../utils/extractIngredientsMeasurements";
+import RecipeInfo from "../../components/Recipe/RecipeInfo";
+import IngredientsList from "../../components/Recipe/IngredientsList";
+import CookingDirections from "../../components/Recipe/RecipeDirections";
+import EatHealthyCard from "../../components/EatHealthyCard";
+import SubscribtionBanner from "../../components/SubscribtionBanner";
+import AdditionalRecipes from "../../components/AdditionalRecipes";
+import OtherRecipes from "../../components/OtherRecipes";
+import Loading from "../../components/Loading";
+import { RECIPE_DETAILS } from "../../constans/endpoints";
+import { womanCooking } from "../../images";
+import { extractIngredientsMeasurements } from "../../utils/extractIngredientsMeasurements";
 
 const MealRecipePage = () => {
   const [recipeInfo, setRecipeInfo] = useState({});

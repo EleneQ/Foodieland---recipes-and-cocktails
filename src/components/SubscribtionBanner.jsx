@@ -1,6 +1,5 @@
 import { useState } from "react";
-
-import { Button } from ".";
+import Button from "./Button";
 
 const SubscribtionBanner = () => {
   const [email, setEmail] = useState();

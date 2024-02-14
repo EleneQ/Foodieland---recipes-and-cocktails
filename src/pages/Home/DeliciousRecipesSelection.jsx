@@ -1,4 +1,4 @@
-import { AdditionalRecipes } from "../";
+import AdditionalRecipes from "../../components/AdditionalRecipes";
 
 const DeliciousRecipesSelection = () => {
   return (
@@ -12,7 +12,7 @@ const DeliciousRecipesSelection = () => {
           tempor incididunt ut labore et dolore magna aliqut enim ad minim
         </p>
       </div>
-      
+
       <AdditionalRecipes letterToSearchBy="k" maxRecipeAmount={8} />
     </section>
   );

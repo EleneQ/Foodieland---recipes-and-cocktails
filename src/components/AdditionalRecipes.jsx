@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { Loading } from "./";
-import RecipeCard from "./HomePage/RecipeCard";
+import  Loading from "./Loading";
+import RecipeCard from "../pages/Home/MealCard";
 import useFetch from "../hooks/useFetch";
 import { RECIPES_BY_LETTER } from "../constans/endpoints";
 

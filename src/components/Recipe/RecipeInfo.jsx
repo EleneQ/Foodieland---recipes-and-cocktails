@@ -1,11 +1,11 @@
 import { useRef } from "react";
 import { GrInfo } from "react-icons/gr";
-import { playButton } from "../images";
-import { PosterProfile } from ".";
+import { playButton } from "../../images";
+import PosterProfile from "../PosterProfile";
 import NutritionInfoCard from "./NutritionInfoCard";
-import RecipeInfoDetails from "./RecipeInfoDetails";
-import SharePrintButtonGroup from "./SharePrintButtonGroup";
-import useOutsideClickHandler from "../hooks/useOutsideClickHandler";
+import RecipeInfoDetails from "./RecipeDetails";
+import SharePrintButtonGroup from "../SharePrintButtonGroup";
+import useOutsideClickHandler from "../../hooks/useOutsideClickHandler";
 
 const RecipeInfo = ({
   ingredients,

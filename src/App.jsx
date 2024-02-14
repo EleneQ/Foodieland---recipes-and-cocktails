@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navbar, Footer } from "./components";
-import HomePage from "./pages/HomePage";
-import MealRecipePage from "./pages/MealRecipePage";
-import ContactUsPage from "./pages/ContactUsPage";
-import CocktailsPage from "./pages/CocktailsPage";
-import AboutUsPage from "./pages/AboutUsPage";
-import CocktailRecipePage from "./pages/CocktailRecipePage";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import HomePage from "./pages/Home/HomePage";
+import MealRecipePage from "./pages/MealRecipe/MealRecipePage";
+import ContactUsPage from "./pages/ContactUs/ContactUsPage";
+import CocktailsPage from "./pages/Cocktails/CocktailsPage";
+import AboutUsPage from "./pages/AboutUs/AboutUsPage";
+import CocktailRecipePage from "./pages/CocktailRecipe/CocktailRecipePage";
 
 const App = () => {
   return (

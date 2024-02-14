@@ -1,12 +1,9 @@
 import { useState } from "react";
-
-import CocktailsShowcase from "../components/CocktailsPage/CocktailsShowcase";
-import SearchBar from "../components/CocktailsPage/SearchBar";
-import {
-  EatHealthyCard,
-  SubscribtionBanner,
-  OtherRecipes,
-} from "../components";
+import CocktailsShowcase from "../Cocktails/CocktailsShowcase";
+import SearchBar from "./SearchBar";
+import EatHealthyCard from "../../components/EatHealthyCard"
+import SubscribtionBanner from "../../components/SubscribtionBanner"
+import OtherRecipes from "../../components/OtherRecipes"
 
 const CocktailsPage = () => {
   const [cocktails, setCocktails] = useState([]);

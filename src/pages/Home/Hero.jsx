@@ -2,8 +2,8 @@ import { FaClock, FaPlayCircle } from "react-icons/fa";
 import { PiForkKnifeFill } from "react-icons/pi";
 import { scroll, chicken, sticker } from "../../images";
 
-import { Button } from "..";
-import { PosterProfile } from "../";
+import Button from "../../components/Button";
+import PosterProfile from "../../components/PosterProfile";
 
 const Hero = () => {
   return (

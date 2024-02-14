@@ -72,7 +72,7 @@ const CookingDirections = ({ recipeInfo, processImage }) => {
 
               {index === 0 && (
                 <img
-                  className="mt-7 rounded-2xl object-cover max-h-[400px] w-[100%] object-center"
+                  className="mt-7 rounded-2xl object-cover max-h-[400px] object-center lg:w-[800px] max-lg:max-w-[100%]"
                   src={processImage}
                   alt="process of creation"
                   loading="lazy"

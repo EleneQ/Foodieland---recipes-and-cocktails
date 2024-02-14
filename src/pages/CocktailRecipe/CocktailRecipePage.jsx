@@ -1,19 +1,17 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { COCKTAIL_DETAILS } from "../constans/endpoints";
-import IngredientsList from "../components/IngredientsList";
-import RecipeInfo from "../components/RecipeInfo";
-import {
-  AdditionalRecipes,
-  EatHealthyCard,
-  Loading,
-  OtherRecipes,
-  SubscribtionBanner,
-} from "../components";
-import CookingDirections from "../components/RecipeDirections";
+import { COCKTAIL_DETAILS } from "../../constans/endpoints";
+import IngredientsList from "../../components/Recipe/IngredientsList";
+import RecipeInfo from "../../components/Recipe/RecipeInfo";
+import AdditionalRecipes from "../../components/AdditionalRecipes";
+import EatHealthyCard from "../../components/EatHealthyCard";
+import Loading from "../../components/Loading";
+import OtherRecipes from "../../components/OtherRecipes";
+import SubscribtionBanner from "../../components/SubscribtionBanner";
+import CookingDirections from "../../components/Recipe/RecipeDirections";
 import axios from "axios";
-import { bartender } from "../images";
-import { extractIngredientsMeasurements } from "../utils/extractIngredientsMeasurements";
+import { bartender } from "../../images";
+import { extractIngredientsMeasurements } from "../../utils/extractIngredientsMeasurements";
 
 const CocktailRecipePage = () => {
   const [cocktailInfo, setCocktailnfo] = useState({});

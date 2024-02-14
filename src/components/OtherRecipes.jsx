@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-
-import { Loading } from "./";
+import Loading from "./Loading";
 import useFetchEffect from "../hooks/useFetchEffect";
 
 const OtherRecipes = ({ sectionTitle, randomize = false }) => {
@@ -62,11 +60,6 @@ const OtherRecipes = ({ sectionTitle, randomize = false }) => {
       </ul>
     </section>
   );
-};
-
-OtherRecipes.propTypes = {
-  sectionTitle: PropTypes.string.isRequired,
-  randomize: PropTypes.bool,
 };
 
 export default OtherRecipes;
