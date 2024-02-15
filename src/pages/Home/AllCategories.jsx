@@ -5,15 +5,12 @@ import Loading from "../../components/Loading";
 import { ALL_MEAL_CATEGORIES } from "../../constans/endpoints";
 import { useMealRecipes } from "../../context/MealsRecipeContext";
 import gradientsArray from "../../constans/gradientsArray";
-import {
-  MEALS_BY_CATEGORY,
-  MEALS_BY_LETTER,
-} from "../../constans/endpoints";
+import { MEALS_BY_CATEGORY, MEALS_BY_LETTER } from "../../constans/endpoints";
 import { useCarouselWidth } from "../../hooks/useCarouselWidth";
 
 const AllCategories = ({ selectedCategory, setSelectedCategory }) => {
   const carousel = useRef();
-  const { setRecipes } = useMealRecipes();
+  const { fetchMeals } = useMealRecipes();
 
   const {
     loading: loadingCategories,
@@ -25,20 +22,17 @@ const AllCategories = ({ selectedCategory, setSelectedCategory }) => {
   const width = useCarouselWidth(carousel, categories);
 
   //fetch recipes
-  const { loading: loadingMeals, value: { meals } = [] } = useFetch(
-    !selectedCategory || selectedCategory === "all"
-      ? `${MEALS_BY_LETTER}c`
-      : `${MEALS_BY_CATEGORY}${selectedCategory}`,
-    {},
-    [selectedCategory]
-  );
-
-  //set recipes
   useEffect(() => {
-    if (!loadingMeals) {
-      setRecipes(meals);
-    }
-  }, [setRecipes, loadingMeals, meals]);
+    const fetch = async () => {
+      await fetchMeals(
+        !selectedCategory || selectedCategory === "all"
+          ? `${MEALS_BY_LETTER}c`
+          : `${MEALS_BY_CATEGORY}${selectedCategory}`
+      );
+    };
+    fetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCategory]);
 
   //category selection
   const categorySelectionHandler = (categoryName) => {

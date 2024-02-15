@@ -3,17 +3,18 @@ import Pagination from "../../components/Pagination";
 import SearchBar from "./SearchBar";
 import MealCard from "./MealCard";
 import { useMealRecipes } from "../../context/MealsRecipeContext";
+import Loading from "../../components/Loading";
 
 const MealsShowcase = ({ selectedCategory }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(9);
 
-  const { recipes } = useMealRecipes();
+  const { meals, mealsError, mealsLoading } = useMealRecipes();
 
   //pagination
   const indexOfLastPost = currentPage * recipesPerPage;
   const indexOfFirstPost = indexOfLastPost - recipesPerPage;
-  const currentRecipes = recipes.slice(indexOfFirstPost, indexOfLastPost);
+  const currentRecipes = meals?.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNum) => {
     setCurrentPage(pageNum);
@@ -26,9 +27,13 @@ const MealsShowcase = ({ selectedCategory }) => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [recipes.length, selectedCategory]);
+  }, [meals.length, selectedCategory]);
 
-  return (
+  return mealsLoading ? (
+    <Loading />
+  ) : mealsError ? (
+    <p>{mealsError}</p>
+  ) : (
     <section className="padding-x max-width mt-[3.5rem] md:mt-[7rem]">
       <div className="text-center max-w-[700px] mx-auto">
         <h2 className="font-semibold text-3xl md:text-4xl pb-2">
@@ -36,7 +41,7 @@ const MealsShowcase = ({ selectedCategory }) => {
         </h2>
         <p className="text-gray-400 text-[14px] md:text-[15px]">
           Take a look at the recipes we offer. If you would like to see specific
-          recipes, select one of the categories above or seach by name
+          recipes, select one of the categories above and search by name
         </p>
       </div>
 
@@ -58,7 +63,7 @@ const MealsShowcase = ({ selectedCategory }) => {
         <Pagination
           className={"mt-6"}
           itemsPerPage={recipesPerPage}
-          items={recipes}
+          items={meals}
           currentPage={currentPage}
           paginate={paginate}
         />

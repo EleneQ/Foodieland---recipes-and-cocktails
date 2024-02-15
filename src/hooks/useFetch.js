@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function useFetch(url, options = {}, dependencies = []) {
   return useAsync(() => {
-    return axios(url, options)
+    return axios.get(url, options)
       .then((res) => {
         if (res.status >= 200 && res.status < 300) {
           return res.data;
