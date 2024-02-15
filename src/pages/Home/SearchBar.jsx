@@ -1,16 +1,28 @@
 import { useState } from "react";
+import axios from "axios";
 import { MEALS_BY_NAME } from "../../constans/endpoints";
 import { useMealRecipes } from "../../context/MealsRecipeContext";
 
 const SearchBar = ({ selectedCategory }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { fetchMeals, filterMealsByName } = useMealRecipes();
+  const { setMeals, filterMealsByName } = useMealRecipes();
+
+  const searchAllMealsByName = async () => {
+    try {
+      const {
+        data: { meals },
+      } = await axios.get(`${MEALS_BY_NAME}${searchTerm}`);
+      setMeals(meals || []);
+    } catch (err) {
+      console.error("Error fetching recipes:", err.message);
+    }
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
     if (!selectedCategory || selectedCategory === "all") {
-      await fetchMeals(`${MEALS_BY_NAME}${searchTerm}`);
+      await searchAllMealsByName();
     } else {
       filterMealsByName(searchTerm);
     }

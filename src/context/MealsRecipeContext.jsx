@@ -1,4 +1,3 @@
-import axios from "axios";
 import { createContext, useContext, useState } from "react";
 
 export const MealsRecipeContext = createContext([]);
@@ -9,24 +8,6 @@ export const useMealRecipes = () => {
 
 export const MealsRecipeProvider = ({ children }) => {
   const [meals, setMeals] = useState([]);
-  const [mealsError, setMealsError] = useState(null);
-  const [mealsLoading, setMealsLoading] = useState(false);
-
-  const fetchMeals = async (url) => {
-    try {
-      setMealsLoading(true);
-
-      const {
-        data: { meals },
-      } = await axios.get(url);
-
-      setMeals(meals || []);
-    } catch (err) {
-      setMealsError(err);
-    } finally {
-      setMealsLoading(false);
-    }
-  };
 
   const filterMealsByName = (searchTerm) => {
     setMeals(
@@ -37,15 +18,7 @@ export const MealsRecipeProvider = ({ children }) => {
   };
 
   return (
-    <MealsRecipeContext.Provider
-      value={{
-        meals,
-        mealsError,
-        mealsLoading,
-        fetchMeals,
-        filterMealsByName,
-      }}
-    >
+    <MealsRecipeContext.Provider value={{ meals, setMeals, filterMealsByName }}>
       {children}
     </MealsRecipeContext.Provider>
   );
