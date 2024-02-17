@@ -25,11 +25,10 @@ const Navbar = () => {
       </button>
 
       {/* desktop */}
-      <motion.div
-        className={`primary-nav | max-md:fixed top-0 left-0 bottom-0 right-[4.5rem] max-md:bg-white z-50 flex flex-col items-center justify-center gap-[6rem]`}
-        initial={false}
-        animate={{ x: expanded ? 0 : "-130%" }} 
-        transition={{ duration: 0.2 }}
+      <div
+        className={`primary-nav | max-md:fixed top-0 left-0 bottom-0 right-[4.5rem] max-md:bg-white z-50 flex flex-col items-center justify-center gap-[6rem] ${
+          expanded ? "translate-x-0" : "max-md:-translate-x-[200%]"
+        }`}
       >
         <nav>
           <ul className="flex gap-[3rem] font-medium text-[14px] flex-col md:flex-row max-md:justify-center items-center h-full">
@@ -48,7 +47,7 @@ const Navbar = () => {
           </ul>
         </nav>
         <SocialLinks className={"md:hidden"} />
-      </motion.div>
+      </div>
 
       <SocialLinks className={"hidden md:flex"} />
     </header>
