@@ -1,8 +1,12 @@
+import { motion } from "framer-motion";
+
 const Loading = () => {
   return (
-    <div className="mx-auto mt-10">
-      <div className="border-gray-300 h-10 w-10 animate-spin rounded-full border-4 border-t-accent-pink-500" />
-    </div>
+    <motion.div
+      animate={{ rotate: [0, 360], x: [-20, 20, -20] }}
+      transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+      className="mt-10 border-gray-300 h-10 w-10 rounded-full border-4 border-t-accent-pink-500 mx-auto"
+    />
   );
 };
 
