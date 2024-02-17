@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 
-export const useCarouselWidth = (ref, categories) => {
+export const useCarouselWidth = (carouselRef, moreDeps = []) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    if (ref.current) {
-      setWidth(ref.current.scrollWidth - ref.current.offsetWidth);
+    if (carouselRef.current) {
+      setWidth(
+        carouselRef.current.scrollWidth - carouselRef.current.offsetWidth
+      );
     }
-  }, [categories, ref]);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [carouselRef, ...moreDeps]);
 
   return width;
 };

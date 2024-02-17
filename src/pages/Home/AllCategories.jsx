@@ -5,10 +5,7 @@ import Loading from "../../components/Loading";
 import { ALL_MEAL_CATEGORIES } from "../../constans/endpoints";
 import { useMealRecipes } from "../../context/MealsRecipeContext";
 import gradientsArray from "../../constans/gradientsArray";
-import {
-  MEALS_BY_CATEGORY,
-  MEALS_BY_LETTER,
-} from "../../constans/endpoints";
+import { MEALS_BY_CATEGORY, MEALS_BY_LETTER } from "../../constans/endpoints";
 import { useCarouselWidth } from "../../hooks/useCarouselWidth";
 
 const AllCategories = ({ selectedCategory, setSelectedCategory }) => {
@@ -22,7 +19,7 @@ const AllCategories = ({ selectedCategory, setSelectedCategory }) => {
   } = useFetch(ALL_MEAL_CATEGORIES, {}, []);
 
   //carousel width
-  const width = useCarouselWidth(carousel, categories);
+  const width = useCarouselWidth(carousel, [categories]);
 
   //fetch recipes
   const { loading: loadingMeals, value: { meals } = [] } = useFetch(
