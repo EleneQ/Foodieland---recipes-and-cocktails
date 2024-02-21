@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import Button from "../../components/Button";
 import { chef } from "../../images";
 
 const ChefCTA = () => {
@@ -11,9 +13,11 @@ const ChefCTA = () => {
           Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqut enim ad minim
         </p>
-        <button className="mt-[3rem] bg-black text-white text-[13px] px-8 py-3 rounded-xl">
-          Learn More
-        </button>
+        <Link to="/about">
+          <Button primary className="mt-[2rem]">
+            Learn More
+          </Button>
+        </Link>
       </div>
       <div className="chef-cta-img-container">
         <div>

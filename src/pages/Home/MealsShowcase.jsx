@@ -34,7 +34,10 @@ const MealsShowcase = ({ selectedCategory }) => {
   ) : mealsError ? (
     <p>{mealsError}</p>
   ) : (
-    <section className="padding-x max-width mt-[3.5rem] md:mt-[7rem]">
+    <section
+      id="meals-showcase"
+      className="padding-x max-width mt-[3.5rem] md:mt-[7rem]"
+    >
       <div className="text-center max-w-[700px] mx-auto">
         <h2 className="font-semibold text-3xl md:text-4xl pb-2">
           Simple and tasty recipes

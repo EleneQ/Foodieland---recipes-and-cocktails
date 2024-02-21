@@ -1,7 +1,6 @@
 import { FaClock, FaPlayCircle } from "react-icons/fa";
 import { PiForkKnifeFill } from "react-icons/pi";
 import { scroll, chicken, sticker } from "../../images";
-
 import Button from "../../components/Button";
 import PosterProfile from "../../components/PosterProfile";
 
@@ -44,16 +43,19 @@ const Hero = () => {
           {/* profile pic and button */}
           <div className="flex flex-col gap-4 md:gap-2 sm:flex-row md:items-center justify-between mt-[3rem] sm:mt-[5rem] lg:mt-[7.5rem]">
             <PosterProfile />
-            <Button
-              className={
-                "px-2 py-[8px] md:px-5 md:py-3 max-w-[10rem] md:max-w-none"
-              }
-              primary
-              flexed
-            >
-              View Recipes
-              <FaPlayCircle className="text-lg" />
-            </Button>
+
+            <a href="#meals-showcase">
+              <Button
+                className={
+                  "px-2 py-[8px] md:px-5 md:py-3 max-w-[10rem] md:max-w-none"
+                }
+                primary
+                flexed
+              >
+                View More
+                <FaPlayCircle className="text-lg" />
+              </Button>
+            </a>
           </div>
         </div>
 

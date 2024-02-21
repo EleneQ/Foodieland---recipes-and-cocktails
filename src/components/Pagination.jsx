@@ -11,6 +11,10 @@ const Pagination = ({
     pageNumbers.push(i);
   }
 
+  if (pageNumbers.length <= 1) {
+    return null;
+  }
+
   return (
     <nav className={className}>
       <ul className="flex gap-2 items-center justify-center">
