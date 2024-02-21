@@ -2,7 +2,6 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { navLinks } from "../constans/data";
 import SocialLinks from "./SocialLinks";
-import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
@@ -46,6 +45,7 @@ const Navbar = () => {
             ))}
           </ul>
         </nav>
+        
         <SocialLinks className={"md:hidden"} />
       </div>
 

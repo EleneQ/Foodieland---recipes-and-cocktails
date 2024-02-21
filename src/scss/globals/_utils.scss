@@ -41,9 +41,6 @@
 
   input[type="checkbox"] {
     cursor: pointer;
-    /*
-      so that screen readers still know that these checkboxes are here
-    */
     opacity: 0;
     position: absolute;
   }
@@ -52,15 +49,4 @@
     background-color: black;
     border-color: black;
   }
-
-  //for tabbing through
-  input[type="checkbox"]:focus + label::before {
-    box-shadow: 0 0 10px rgb(210, 208, 208);
-  }
-}
-
-@mixin grid-center {
-  display: grid;
-  justify-content: center;
-  align-items: center;
 }

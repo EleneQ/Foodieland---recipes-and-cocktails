@@ -1,7 +1,7 @@
-@use "../globals/utils" as utils;
+@use "../globals/mixins" as mixins;
 
 .additional-recipes-grid {
-  @include utils.grid-center;
+  @include mixins.grid-center;
   grid-template-columns: minmax(9rem, 19rem);
   column-gap: 2rem;
   row-gap: 1.5rem;
