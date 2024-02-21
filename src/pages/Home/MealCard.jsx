@@ -15,9 +15,9 @@ const MealCard = ({ recipe, selectedCategory, className }) => {
   } = recipe;
 
   return (
-    <Link to={`/recipe/${idMeal}`} className="h-[100%]">
+    <Link to={`/recipe/${idMeal}`} className="h-full">
       <li
-        className={`rounded-3xl cursor-pointer max-md:max-w-[25rem] max-md:mx-auto ${className}`}
+        className={`h-full rounded-3xl cursor-pointer max-md:max-w-[25rem] max-md:mx-auto ${className}`}
         onClick={() => scrollTo({ top: 230, behavior: "smooth" })}
       >
         <img
