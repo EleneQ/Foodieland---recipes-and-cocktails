@@ -1,12 +1,8 @@
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
-import classnames from "classnames";
-import { PropTypes } from "prop-types";
 
 const SocialLinks = ({ style, className }) => {
-  const classes = classnames(className, "flex gap-[2rem] items-center");
-
   return (
-    <ul style={style} className={classes}>
+    <ul style={style} className={`flex gap-[2rem] items-center ${className}`}>
       <li className="social-link">
         <FaFacebookF />
       </li>
@@ -18,11 +14,6 @@ const SocialLinks = ({ style, className }) => {
       </li>
     </ul>
   );
-};
-
-SocialLinks.propTypes = {
-  style: PropTypes.object,
-  className: PropTypes.string,
 };
 
 export default SocialLinks;

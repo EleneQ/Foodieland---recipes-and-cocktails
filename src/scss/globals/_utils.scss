@@ -1,3 +1,5 @@
+@use "../abstracts/mixins" as mixins;
+
 .overflow-x-hidden {
   overflow-x: hidden;
 }
@@ -48,5 +50,23 @@
   input[type="checkbox"]:checked + label::before {
     background-color: black;
     border-color: black;
+  }
+}
+
+/* RECIPE GRID */
+.recipe-grid {
+  @include mixins.grid-center;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  grid-auto-rows: 1fr;
+}
+
+@media (min-width: 900px) {
+  .recipe-grid {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    row-gap: 2.5rem;
+    column-gap: clamp(2.5rem, 5vw + 1rem, 7rem);
   }
 }
