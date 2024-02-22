@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/Home/HomePage";
@@ -10,7 +10,7 @@ import CocktailRecipePage from "./pages/CocktailRecipe/CocktailRecipePage";
 
 const App = () => {
   return (
-    <Router>
+    <>
       <Navbar />
 
       <Routes>
@@ -23,7 +23,7 @@ const App = () => {
       </Routes>
 
       <Footer />
-    </Router>
+    </>
   );
 };
 export default App;
