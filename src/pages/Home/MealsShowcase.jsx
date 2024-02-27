@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Pagination from "../../components/Pagination";
+import Pagination from "@/components/Pagination";
 import SearchBar from "./SearchBar";
 import MealCard from "./MealCard";
-import { useMealRecipes } from "../../context/MealsRecipeContext";
-import Loading from "../../components/Loading";
+import { useMealRecipes } from "@/hooks/useMealRFecipes";
+import Loading from "@/components/Loading";
 
 const MealsShowcase = ({ selectedCategory }) => {
   const [currentPage, setCurrentPage] = useState(1);

@@ -1,12 +1,12 @@
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import useFetch from "../../hooks/useFetch";
-import Loading from "../../components/Loading";
-import { ALL_MEAL_CATEGORIES } from "../../constans/endpoints";
-import { useMealRecipes } from "../../context/MealsRecipeContext";
-import gradientsArray from "../../constans/gradientsArray";
-import { MEALS_BY_CATEGORY, MEALS_BY_LETTER } from "../../constans/endpoints";
-import { useCarouselWidth } from "../../hooks/useCarouselWidth";
+import useFetch from "@/hooks/useFetch";
+import Loading from "@/components/Loading";
+import { ALL_MEAL_CATEGORIES } from "@/constans/endpoints";
+import { useMealRecipes } from "@/hooks/useMealRFecipes";
+import gradientsArray from "@/constans/gradientsArray";
+import { MEALS_BY_CATEGORY, MEALS_BY_LETTER } from "@/constans/endpoints";
+import { useCarouselWidth } from "@/hooks/useCarouselWidth";
 
 const AllCategories = ({ selectedCategory, setSelectedCategory }) => {
   const carousel = useRef();

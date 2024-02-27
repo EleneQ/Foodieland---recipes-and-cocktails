@@ -1,8 +1,8 @@
 import AboutUsHero from "./AboutUsHero";
 import ChefQuestions from "./ChefQuestions";
-import SocialLinks from "../../components/SocialLinks";
-import SubscriptionBanner from "../../components/SubscriptionBanner";
-import AdditionalRecipes from "../../components/AdditionalRecipes";
+import SocialLinks from "@/components/SocialLinks";
+import SubscriptionBanner from "@/components/SubscriptionBanner";
+import AdditionalRecipes from "@/components/AdditionalRecipes";
 
 const AboutUsPage = () => {
   return (

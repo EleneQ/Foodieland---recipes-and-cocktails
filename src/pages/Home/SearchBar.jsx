@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import { MEALS_BY_NAME } from "../../constans/endpoints";
-import { useMealRecipes } from "../../context/MealsRecipeContext";
+import { MEALS_BY_NAME } from "@/constans/endpoints";
+import { useMealRecipes } from "@/hooks/useMealRFecipes";
 
 const SearchBar = ({ selectedCategory }) => {
   const [searchTerm, setSearchTerm] = useState("");

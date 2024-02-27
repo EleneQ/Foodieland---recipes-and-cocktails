@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Button from "../../components/Button";
-import { chef } from "../../images";
+import Button from "@/components/Button";
+import { chef } from "@/images";
 
 const ChefCTA = () => {
   return (

@@ -12,9 +12,6 @@ export default {
         "gray-500": "#0000000D",
         "accent-pink-500": "#EC4899",
       },
-      height: {
-        "hero-height-lg": "620px",
-      },
       backgroundImage: {
         "primary-blue-gradient":
           "linear-gradient(180deg, rgba(231, 249, 253, 0.00) 0%, #E7F9FD 100%)",

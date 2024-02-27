@@ -1,9 +1,9 @@
 import { useState } from "react";
 import CocktailsShowcase from "../Cocktails/CocktailsShowcase";
 import SearchBar from "./SearchBar";
-import EatHealthyCard from "../../components/EatHealthyCard";
-import SubscriptionBanner from "../../components/SubscriptionBanner";
-import OtherRecipes from "../../components/OtherRecipes";
+import EatHealthyCard from "@/components/EatHealthyCard";
+import SubscriptionBanner from "@/components/SubscriptionBanner";
+import OtherRecipes from "@/components/OtherRecipes";
 import { useSearchParams } from "react-router-dom";
 
 const CocktailsPage = () => {

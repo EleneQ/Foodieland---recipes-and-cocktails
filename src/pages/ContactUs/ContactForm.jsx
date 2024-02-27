@@ -1,7 +1,6 @@
 import { useState } from "react";
-
-import  Dropdown from "../../components/Dropdown";
-import Button from "../../components/Button";
+import Dropdown from "@/components/Dropdown";
+import Button from "@/components/Button";
 
 const initialFormData = {
   name: "",
@@ -12,7 +11,6 @@ const initialFormData = {
 };
 
 const ContactForm = ({ dropdownOptions }) => {
-  const [selection, setSelection] = useState(null);
   const [formData, setFormData] = useState(initialFormData);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
@@ -24,8 +22,6 @@ const ContactForm = ({ dropdownOptions }) => {
   };
 
   const handleSelection = (option) => {
-    setSelection(option);
-
     setFormData((prevData) => ({ ...prevData, enquery: option.value }));
   };
 

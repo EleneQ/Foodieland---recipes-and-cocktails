@@ -1,8 +1,11 @@
+$tomato-img: url("../images/Shared/Foods/tomato.png");
+$steak-img: url("../images/Shared/Foods/steak.png");
+$cabbage-img: url("../images/Shared/Foods/cabbage.png");
+$onion-img: url("../images/Shared/Foods/onion.png");
+
 /* HERO */
 .hero__container {
-  background-image: url("../images/Shared/Foods/tomato.png"),
-    url("../images/Shared/Foods/steak.png"),
-    url("../images/Shared/Foods/cabbage.png");
+  background-image: $tomato-img, $steak-img, $cabbage-img;
   background-repeat: no-repeat;
   background-position: bottom 45px right 80px, bottom 110px right 15px,
     top 50px right 30px;
@@ -11,10 +14,7 @@
 
 @media (min-width: 640px) {
   .hero__container {
-    background-image: url("../images/Shared/Foods/tomato.png"),
-      url("../images/Shared/Foods/steak.png"),
-      url("../images/Shared/Foods/cabbage.png"),
-      url("../images/Shared/Foods/onion.png");
+    background-image: $tomato-img, $steak-img, $cabbage-img, $onion-img;
     background-position: bottom 130px right 80px, top 70px right 50px,
       bottom 150px left 60px, top 160px left 90px;
     background-size: auto, 80px, 55px, 50px;
@@ -34,5 +34,88 @@
 @media (min-width: 1030px) {
   .hero__container {
     grid-template-columns: 1fr 1.1fr;
+  }
+}
+
+/* CHEF CTA */
+.chef-cta {
+  position: relative;
+}
+
+.chef-cta-img-container {
+  background-image: linear-gradient(
+    180deg,
+    rgba(231, 249, 253, 0) 0%,
+    #e7f9fd 100%
+  );
+  border-radius: 2rem;
+  height: 100%;
+  width: 100%;
+
+  div {
+    position: absolute;
+    bottom: -5px;
+    right: 4%;
+    height: 55%;
+    aspect-ratio: 1;
+    z-index: -1;
+
+    background-image: url("../images/Shared/Foods/tomato.png"),
+      url("../images/Shared/Foods/onion.png");
+    background-repeat: no-repeat;
+    background-position: left 20px top 30px, left bottom 20px;
+    background-size: 32px, 35px;
+  }
+
+  img {
+    height: 100%;
+  }
+}
+
+@media (min-width: 500px) {
+  .chef-cta-img-container div {
+    bottom: -25px;
+    right: 10%;
+    height: 75%;
+  }
+}
+
+@media (min-width: 800px) {
+  .chef-cta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    position: static;
+  }
+
+  .chef-cta-img-container {
+    position: relative;
+  }
+
+  .chef-cta-img-container div {
+    left: 50%;
+    transform: translateX(-55%);
+    height: 135%;
+    bottom: 0;
+    right: 0;
+    background-image: url("../images/Shared/Foods/tomato.png"),
+      url("../images/Shared/Foods/steak.png"),
+      url("../images/Shared/Foods/onion.png"),
+      url("../images/Shared/Foods/cabbage.png");
+    background-position: left 10px bottom 120px, left 60px top 75px,
+      right 70px top 80px, right 10px top 140px;
+    background-size: 40px, 65px, 40px, 50px;
+    z-index: 2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .chef-cta-img-container div {
+    transform: translateX(-65%);
+    height: 167%;
+    background-position: left 10px bottom 120px, left 60px top 85px,
+      right 100px top 120px, right top 200px;
   }
 }

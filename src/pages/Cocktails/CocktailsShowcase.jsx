@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Pagination from "../../components/Pagination";
-import Loading from "../../components/Loading";
-import formatDate from "../../utils/formatDate";
-import useFetch from "../../hooks/useFetch";
-import { COCKTAILS_BY_NAME } from "../../constans/endpoints";
+import Pagination from "@/components/Pagination";
+import Loading from "@/components/Loading";
+import formatDate from "@/utils/formatDate";
+import useFetch from "@/hooks/useFetch";
+import { COCKTAILS_BY_NAME } from "@/constans/endpoints";
 
 const CocktailsShowcase = ({
   cocktails,

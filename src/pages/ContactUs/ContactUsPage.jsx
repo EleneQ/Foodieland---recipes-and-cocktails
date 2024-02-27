@@ -1,6 +1,6 @@
 import ContactUs from "./ContactUs";
-import SubscriptionBanner from "../../components/SubscriptionBanner";
-import AdditionalRecipes from "../../components/AdditionalRecipes"
+import SubscriptionBanner from "@/components/SubscriptionBanner";
+import AdditionalRecipes from "@/components/AdditionalRecipes";
 
 const ContactUsPage = () => {
   return (

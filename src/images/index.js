@@ -1,6 +1,6 @@
 /* SHARED */
 
-/* foods */
+//foods
 import cabbage from "./Shared/Foods/cabbage.png";
 import onion from "./Shared/Foods/onion.png";
 import steak from "./Shared/Foods/steak.png";
@@ -12,6 +12,7 @@ import womanCooking from "./Shared/womanCooking.png";
 
 /* CHEF CTA */
 import chef from "./ChefCTA/chef.png";
+import chefVegetables from "./ChefCTA/chefVegetables.png";
 
 /* HERO */
 import chicken from "./Hero/chicken.png";
@@ -51,6 +52,7 @@ export {
   steak,
   tomato,
   chef,
+  chefVegetables,
   chicken,
   hand,
   profile,

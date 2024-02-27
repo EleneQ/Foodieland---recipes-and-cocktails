@@ -1,23 +1,20 @@
+$vegetables-img: url("../images/SubscribtionBanner/vegetables.png");
+$salad-img: url("../images/SubscribtionBanner/salad.png");
+$cabbage-img: url("../images/Shared/Foods/cabbage.png");
+
 .subscribtion-banner {
-  background-image: url("../images/SubscribtionBanner/vegetables.png"),
-    url("../images/SubscribtionBanner/salad.png");
+  background-image: $vegetables-img, $salad-img;
   background-repeat: no-repeat;
   background-position: bottom left, bottom right;
   background-size: 200px, 130px;
-}
 
-@media (min-width: 700px) {
-  .subscribtion-banner {
-    background-image: url("../images/SubscribtionBanner/vegetables.png"),
-      url("../images/SubscribtionBanner/salad.png"),
-      url("../images/SubscribtionBanner/herb.png");
+  @media (min-width: 700px) {
+    background-image: $vegetables-img, $salad-img, $cabbage-img;
     background-position: bottom left, bottom right, bottom 90px right 17%;
     background-size: 250px, 160px, 65px;
   }
-}
 
-@media (min-width: 1000px) {
-  .subscribtion-banner {
+  @media (min-width: 1000px) {
     background-position: bottom left, bottom right, bottom 100px right 20%;
     background-size: auto;
   }

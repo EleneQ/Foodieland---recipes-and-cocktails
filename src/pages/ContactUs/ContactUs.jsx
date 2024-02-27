@@ -1,4 +1,4 @@
-import { chefSmiling } from "../../images";
+import { chefSmiling } from "@/images";
 import ContactForm from "./ContactForm";
 
 const options = [

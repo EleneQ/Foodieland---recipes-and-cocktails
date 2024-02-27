@@ -1,16 +1,16 @@
 import { useParams } from "react-router-dom";
-import RecipeInfo from "../../components/Recipe/RecipeInfo";
-import IngredientsList from "../../components/Recipe/IngredientsList";
-import CookingDirections from "../../components/Recipe/RecipeDirections";
-import EatHealthyCard from "../../components/EatHealthyCard";
-import SubscriptionBanner from "../../components/SubscriptionBanner";
-import AdditionalRecipes from "../../components/AdditionalRecipes";
-import OtherRecipes from "../../components/OtherRecipes";
-import Loading from "../../components/Loading";
-import { MEAL_DETAILS } from "../../constans/endpoints";
-import { womanCooking } from "../../images";
-import { extractIngredientsMeasurements } from "../../utils/extractIngredientsMeasurements";
-import useFetch from "../../hooks/useFetch";
+import RecipeInfo from "@/components/Recipe/RecipeInfo";
+import IngredientsList from "@/components/Recipe/IngredientsList";
+import CookingDirections from "@/components/Recipe/RecipeDirections";
+import EatHealthyCard from "@/components/EatHealthyCard";
+import SubscriptionBanner from "@/components/SubscriptionBanner";
+import AdditionalRecipes from "@/components/AdditionalRecipes";
+import OtherRecipes from "@/components/OtherRecipes";
+import Loading from "@/components/Loading";
+import { MEAL_DETAILS } from "@/constans/endpoints";
+import { womanCooking } from "@/images";
+import { extractIngredientsMeasurements } from "@/utils/extractIngredientsMeasurements";
+import useFetch from "@/hooks/useFetch";
 
 const MealRecipePage = () => {
   const { id } = useParams();

@@ -1,4 +1,4 @@
-import { ourChefCooking } from "../../images";
+import { ourChefCooking } from "@/images";
 
 const AboutUsHero = () => {
   return (

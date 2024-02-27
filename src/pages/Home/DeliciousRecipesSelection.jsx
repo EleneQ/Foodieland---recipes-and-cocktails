@@ -1,4 +1,4 @@
-import AdditionalRecipes from "../../components/AdditionalRecipes";
+import AdditionalRecipes from "@/components/AdditionalRecipes";
 
 const DeliciousRecipesSelection = () => {
   return (

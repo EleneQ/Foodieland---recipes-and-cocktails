@@ -1,14 +1,14 @@
 import { FaClock, FaPlayCircle } from "react-icons/fa";
 import { PiForkKnifeFill } from "react-icons/pi";
-import { scroll, chicken, sticker } from "../../images";
-import Button from "../../components/Button";
-import PosterProfile from "../../components/PosterProfile";
+import { scroll, chicken, sticker } from "@/images";
+import Button from "@/components/Button";
+import PosterProfile from "@/components/PosterProfile";
 
 const Hero = () => {
   return (
-    <section className="flex justify-between gap-[2.5rem] mt-[2rem] mb-[4rem] md:mb-[6rem] lg:h-hero-height-lg overflow-hidden relative">
+    <section className="flex justify-between gap-[2.5rem] mt-[2rem] mb-[4rem] md:mb-[6rem] lg:h-[620px] overflow-hidden relative">
       {/* left side */}
-      <div className="hidden xl:block h-[560px] my-auto w-[40px] bg-primary-blue-300 rounded-se-3xl rounded-ee-3xl"></div>
+      <div className="hidden xl:block h-[560px] my-auto w-[40px] bg-primary-blue-300 rounded-se-3xl rounded-ee-3xl" />
 
       {/* text section */}
       <div className="hero__container | bg-primary-blue-300 rounded-[2rem] max-width">
@@ -64,9 +64,9 @@ const Hero = () => {
           src={sticker}
         />
 
-        {/* chicken pic */}
+        {/* chicken img */}
         <div
-          className="hidden md:block lg:h-hero-height-lg"
+          className="hidden md:block lg:h-[620px]"
           style={{ borderRadius: "0 2rem 2rem 0" }}
         >
           <img
@@ -79,7 +79,7 @@ const Hero = () => {
       </div>
 
       {/* right side */}
-      <div className="hidden xl:block h-[560px] my-auto w-[40px] bg-primary-blue-300 rounded-ss-3xl rounded-es-3xl"></div>
+      <div className="hidden xl:block h-[560px] my-auto w-[40px] bg-primary-blue-300 rounded-ss-3xl rounded-es-3xl" />
     </section>
   );
 };

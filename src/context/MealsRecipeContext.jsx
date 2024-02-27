@@ -1,10 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export const MealsRecipeContext = createContext([]);
-
-export const useMealRecipes = () => {
-  return useContext(MealsRecipeContext);
-};
 
 export const MealsRecipeProvider = ({ children }) => {
   const [meals, setMeals] = useState([]);
