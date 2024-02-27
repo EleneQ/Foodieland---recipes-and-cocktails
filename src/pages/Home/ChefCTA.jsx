@@ -10,8 +10,9 @@ const ChefCTA = () => {
           Everyone can be a chef in their own kitchen
         </h2>
         <p className="text-[#00000099] text-[14px] md:text-base mt-4 md:mt-3">
-          Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqut enim ad minim
+          Crisp spices, tender vegetables, a symphony of flavors – our
+          recipes are a culinary adventure waiting to be explored. You can
+          experience them free of charge in your own kitchen, using your own tools.
         </p>
         <Link to="/about">
           <Button primary className="mt-[2rem]">

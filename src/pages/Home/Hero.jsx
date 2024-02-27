@@ -24,9 +24,10 @@ const Hero = () => {
               Spicy delicious chicken wings
             </h2>
             <p className="text-gray-400 text-[13px] sm:text-[14.5px] md:text-base my-7 max-w-[30rem] md:max-w-none mx-auto">
-              Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad
-              minim
+              Chicken Delight. Indulge in the fiery flavors of our
+              mouthwatering spicy chicken recipe. Succulent chicken marinated in
+              a blend of bold spices, then grilled to perfection for that
+              tantalizing kick.
             </p>
             <div className="flex sm:justify-center md:justify-normal gap-5 text-[14px] mt-9">
               <p className="bg-gray-500 rounded-2xl px-4 py-1 flex items-center gap-2">

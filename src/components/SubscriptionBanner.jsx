@@ -16,8 +16,9 @@ const SubscriptionBanner = () => {
           Deliciousness to your inbox
         </h2>
         <p className="text-[#00000099] mb-5 md:mb-[3.5rem] max-md:text-[14px]">
-          Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqut enim ad minim
+          Join our mailing list and receive recipes, cooking tips, and exclusive
+          offers. Elevate your culinary experience with every newsletter, and
+          let us inspire your next kitchen adventure.
         </p>
         <form
           className="md:bg-white p-2 rounded-xl inline-flex flex-col md:flex-row gap-2 md:gap-4 items-center justify-between max-md:mb-[2rem]"

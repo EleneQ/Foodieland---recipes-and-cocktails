@@ -11,8 +11,10 @@ const InstagramCTA = () => {
             Check out @foodieland on Instagram
           </h2>
           <p className="text-gray-400 mt-3 text-[14px] md:text-base">
-            Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqut enim ad minim
+            We believe in sharing the joy of cooking with the world. That&apos;s
+            why we showcase our delicious recipes on Instagram every single day.
+            Follow us to embark on a delicious journey and make each day a
+            little more special.
           </p>
         </div>
         <div className="hidden sm:grid grid-cols-4 justify-between sm:gap-[1rem] items-center max-sm:justify-center">

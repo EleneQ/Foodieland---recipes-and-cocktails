@@ -15,8 +15,8 @@ const CocktailsPage = () => {
       <section className="padding-x max-width text-center my-[2.5rem]">
         <h1 className="text-4xl md:text-5xl font-bold">Cocktails</h1>
         <p className="text-gray-400 mt-3">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore
+          Embark on a journey through innovative mixes. Our collection will
+          elevate your drinking experience.
         </p>
       </section>
 
