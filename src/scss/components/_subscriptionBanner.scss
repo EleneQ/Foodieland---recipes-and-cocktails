@@ -1,6 +1,6 @@
 $vegetables-img: url("../images/SubscribtionBanner/vegetables.png");
 $salad-img: url("../images/SubscribtionBanner/salad.png");
-$cabbage-img: url("../images/Shared/Foods/cabbage.png");
+$herb-img: url("../images/SubscribtionBanner/herb.png");
 
 .subscribtion-banner {
   background-image: $vegetables-img, $salad-img;
@@ -9,7 +9,7 @@ $cabbage-img: url("../images/Shared/Foods/cabbage.png");
   background-size: 200px, 130px;
 
   @media (min-width: 700px) {
-    background-image: $vegetables-img, $salad-img, $cabbage-img;
+    background-image: $vegetables-img, $salad-img, $herb-img;
     background-position: bottom left, bottom right, bottom 90px right 17%;
     background-size: 250px, 160px, 65px;
   }

@@ -34,7 +34,7 @@ const Footer = () => {
           className="text-[14px] text-gray-400 text-center"
           style={{ gridArea: "text" }}
         >
-          © 2020 Foodieland
+          © 2024 Foodieland
         </p>
         <SocialLinks
           className={"max-md:mt-3 justify-center md:justify-end"}
