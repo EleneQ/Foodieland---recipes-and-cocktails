@@ -5,7 +5,7 @@ const NutritionInfoCard = ({ className }) => {
 
   return (
     <div
-      className={`bg-primary-blue-300 md:p-6 rounded-2xl w-[230px] sm:w-[250px] md:w-[420px] aspect-square relative max-md:text-center max-md:text-[14px] max-md:mt-3 ${className}`}
+      className={`bg-primary-blue-300 md:p-8 rounded-2xl w-[230px] sm:w-[270px] md:w-[460px] aspect-square relative max-md:text-center max-md:text-[14px] max-md:mt-3 ${className}`}
     >
       <h4 className="font-bold text-lg mb-1 md:mb-5">Nutrition Information</h4>
       <ul className="ingredient-info">

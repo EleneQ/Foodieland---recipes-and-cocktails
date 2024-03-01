@@ -1,6 +1,5 @@
 import { profile } from "../images";
 import classnames from "classnames";
-import PropTypes from "prop-types";
 
 const PosterProfile = ({ className }) => {
   const classes = classnames(className, "flex gap-3 items-center");
@@ -18,10 +17,6 @@ const PosterProfile = ({ className }) => {
       </div>
     </div>
   );
-};
-
-PosterProfile.propTypes = {
-  className: PropTypes.string,
 };
 
 export default PosterProfile;

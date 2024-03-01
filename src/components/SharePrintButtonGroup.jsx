@@ -1,5 +1,4 @@
 import { FiPrinter, FiShare } from "react-icons/fi";
-import PropTypes from "prop-types";
 
 const SharePrintButtonGroup = ({ className }) => {
   return (
@@ -22,10 +21,6 @@ const SharePrintButtonGroup = ({ className }) => {
       </button>
     </div>
   );
-};
-
-SharePrintButtonGroup.propTypes = {
-  className: PropTypes.string,
 };
 
 export default SharePrintButtonGroup;

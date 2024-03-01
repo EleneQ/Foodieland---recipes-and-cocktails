@@ -2,14 +2,15 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { navLinks } from "../constans/data";
 import SocialLinks from "./SocialLinks";
+import logo from "@/images/Shared/logo.png";
 
 const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
     <header className="padding-x max-width flex justify-between items-center border-b-[1px] border-b-[#0000001A] py-7">
-      <Link to="/" className="font-lobster text-lg">
-        Foodieland<span className="text-[#FF7426]">.</span>
+      <Link to="/">
+        <img src={logo} alt="logo" className="h-[15px]" />
       </Link>
 
       {/* hamburger menu */}
@@ -45,7 +46,7 @@ const Navbar = () => {
             ))}
           </ul>
         </nav>
-        
+
         <SocialLinks className={"md:hidden"} />
       </div>
 

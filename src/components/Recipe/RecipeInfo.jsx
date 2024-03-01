@@ -59,7 +59,7 @@ const RecipeInfo = ({
       <div className="flex gap-3 lg:gap-5 justify-between overflow-hidden items-stretch">
         <div className="relative">
           <img
-            className="rounded-2xl md:h-[600px] aspect-[1/0.7] flex-1"
+            className="rounded-2xl md:h-[570px] aspect-[1/0.7] flex-1"
             src={videoThumbnail}
             alt={name}
           />
